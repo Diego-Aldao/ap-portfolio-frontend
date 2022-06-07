@@ -49,6 +49,9 @@ a {
     position: relative;
     display: inline-block;
 }
+a:hover{
+    color: var(--color-principal);
+}
 
 html {
     width:100%;
@@ -68,6 +71,13 @@ body {
     color: var(--color-titulos);
 }
 
+.btn{
+    font-family: var(--fuente-secundaria);
+    letter-spacing: 1px;
+    font-weight: 600;
+    font-size: 14px;
+    background-color: var(--color-principal);
+}
 
 /*NAVEGACION PRINCIPAL*/
 
