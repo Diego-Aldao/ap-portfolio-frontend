@@ -1,0 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Mulish:wght@300;400;500&display=swap');
+
+:root{
+    --color-principal: #ffe715;
+    --color-secundario: #a49618;
+    --color-textos: #b9b9b9;
+    --color-titulos: #f9f9f9;
+    --color-negro: #1c1c1c;
+    --fuente-principal: 'Monterrat', sans-serif;
+    --fuente-secundaria: 'Mulish', sans-serif;    
+}
