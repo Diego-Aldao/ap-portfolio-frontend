@@ -31,7 +31,6 @@ p{
     margin: 0 0 15px 0;
     line-height: 1.5;
     font-size: clamp(16px, 2vw, 18px);
-    color: var(--color-textos);
 }
 
 p, span{
@@ -68,3 +67,15 @@ body {
     background: var(--color-negro);
     color: var(--color-titulos);
 }
+
+
+/*NAVEGACION PRINCIPAL*/
+
+.logo-argprog{
+    color: var(--color-principal);
+}
+
+.redes i{
+    color: var(--color-principal);
+}
+
