@@ -108,8 +108,12 @@ body {
 
 /*NAVEGACION PRINCIPAL*/
 
+
 .logo-argprog {
-    color: var(--color-principal);
+    background: #8892b0;
+    padding: 4px 8px;
+    color: var(--color-secundario);
+    border-radius: 5px;
 }
 
 .redes i {
@@ -274,8 +278,6 @@ body {
     position: absolute;
     background: #0a192f;
     transition: background 0.3s ease-in-out;
-
-
 }
 
 .item-proyecto:hover:after {
@@ -287,7 +289,9 @@ body {
     z-index: 2;
 }
 
-
+.descripcion-proyecto::first-letter {
+    text-transform: capitalize;
+}
 
 .tecnologia {
     color: var(--color-principal);
