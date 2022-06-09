@@ -22,7 +22,9 @@
 
 h1,
 h2,
-h3 {
+h3,
+h4,
+h5 {
     margin: 0px 0px 10px 0px;
     font-weight: 600;
     line-height: 1.1;
@@ -98,6 +100,11 @@ body {
     font-size: 18px;
 }
 
+.fechas {
+    font-size: 12px;
+    color: var(--color-secundario);
+}
+
 
 /*NAVEGACION PRINCIPAL*/
 
@@ -134,7 +141,12 @@ body {
 }
 
 .texto-header {
-    max-width: 500px;
+    max-width: 600px;
+    line-height: 1.8;
+}
+
+.texto-header span {
+    color: var(--color-principal);
 }
 
 
@@ -158,6 +170,23 @@ body {
 
 .info-educacion {
     width: calc(100% - 70px);
+}
+
+.fecha-educacion {
+    color: var(--color-principal);
+}
+
+.descripcion-educacion::first-letter {
+    text-transform: capitalize;
+}
+
+.descripcion-educacion span {
+    color: var(--color-principal);
+}
+
+.link-educacion {
+    width: 100%;
+    text-align: right;
 }
 
 
@@ -258,10 +287,7 @@ body {
     z-index: 2;
 }
 
-.fecha-proyecto {
-    font-size: 12px;
-    color: var(--color-secundario);
-}
+
 
 .tecnologia {
     color: var(--color-principal);
