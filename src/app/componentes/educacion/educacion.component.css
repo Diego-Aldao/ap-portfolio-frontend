@@ -1,0 +1,38 @@
+/*EDUCACION*/
+
+.item-educacion {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.logo-educacion {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 3px solid var(--color-principal);
+}
+
+.logo-educacion img {
+    border-radius: 50%;
+}
+
+.info-educacion {
+    width: calc(100% - 70px);
+}
+
+.fecha-educacion {
+    color: var(--color-principal);
+}
+
+.descripcion-educacion::first-letter {
+    text-transform: capitalize;
+}
+
+.descripcion-educacion span {
+    color: var(--color-principal);
+}
+
+.link-educacion {
+    width: 100%;
+    text-align: right;
+}

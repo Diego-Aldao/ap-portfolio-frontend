@@ -1,0 +1,13 @@
+/*NAVEGACION PRINCIPAL*/
+
+
+.logo-argprog {
+    background: #8892b0;
+    padding: 4px 8px;
+    color: var(--color-secundario);
+    border-radius: 5px;
+}
+
+.redes i {
+    color: var(--color-principal);
+}

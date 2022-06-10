@@ -1,0 +1,31 @@
+/*HEADER PRINCIPAL*/
+
+.img-personal {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 3px solid var(--color-principal);
+}
+
+.img-personal img {
+    border-radius: 50%;
+}
+
+.nombre {
+    font-size: clamp(32px, 5vw, 60px);
+}
+
+.titulo {
+    font-size: clamp(14px, 2vw, 18px);
+    font-family: var(--fuente-secundaria);
+    color: var(--color-principal);
+}
+
+.texto-header {
+    max-width: 600px;
+    line-height: 1.8;
+}
+
+.texto-header span {
+    color: var(--color-principal);
+}

@@ -1,0 +1,40 @@
+/*PROYECTOS*/
+
+.item-proyecto {
+    margin-bottom: 100px;
+    position: relative;
+    overflow: hidden;
+    background: url("../../../assets/images/proyectos/pexels-cottonbro-4904567.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.item-proyecto:after {
+    content: "";
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    left: 0px;
+    position: absolute;
+    background: #0a192f;
+    transition: background 0.3s ease-in-out;
+}
+
+.item-proyecto:hover:after {
+    background: linear-gradient(to right, #0a192f 10%, #0a192f8e 40%);
+}
+
+.contenido-proyecto {
+    position: relative;
+    z-index: 2;
+}
+
+.descripcion-proyecto::first-letter {
+    text-transform: capitalize;
+}
+
+.tecnologia {
+    color: var(--color-principal);
+    font-size: 11px;
+}
