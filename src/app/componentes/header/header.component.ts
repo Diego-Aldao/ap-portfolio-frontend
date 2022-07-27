@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Usuario } from 'src/app/models/usuario.model';
+import { UsuarioService } from 'src/app/servicios/usuario.service';
 
 @Component({
   selector: 'app-header',
@@ -7,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  usuario: Usuario = new Usuario("","","");
+
+  constructor(public usuarioService: UsuarioService) { }
 
   ngOnInit(): void {
+    this.usuarioService.getUsuario().subscribe(data => {this.usuario = data})
   }
 
 }
