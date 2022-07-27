@@ -11,6 +11,7 @@ import { ProyectosComponent } from './componentes/proyectos/proyectos.component'
 import { FooterComponent } from './componentes/footer/footer.component';
 import { InicioComponent } from './componentes/inicio/inicio.component';
 import { LoginComponent } from './componentes/login/login.component';
+import { HttpClientModule } from "@angular/common/http"
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { LoginComponent } from './componentes/login/login.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
