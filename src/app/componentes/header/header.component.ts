@@ -9,12 +9,20 @@ import { UsuarioService } from 'src/app/servicios/usuario.service';
 })
 export class HeaderComponent implements OnInit {
 
-  usuario: Usuario = new Usuario("","","");
+  public usuario: Usuario | undefined;
 
   constructor(public usuarioService: UsuarioService) { }
 
   ngOnInit(): void {
-    this.usuarioService.getUsuario().subscribe(data => {this.usuario = data})
+    this.getUsuario();
+  }
+
+  public getUsuario():void{
+    this.usuarioService.getUsuario().subscribe(
+      data => {
+        this.usuario = data;
+      }      
+    )
   }
 
 }
