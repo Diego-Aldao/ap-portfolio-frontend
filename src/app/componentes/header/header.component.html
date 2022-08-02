@@ -1,18 +1,14 @@
 <header *ngIf="usuario" class="header-principal">
   <div class="py-5 my-5 px-md-5">
     <div class="img-personal mb-4">
-      <img src="../assets/images/me.webp" alt="imagen de diego aldao" />
+      <img src="{{ usuario.img }}" alt="imagen de diego aldao" />
     </div>
     <h1 class="nombre text-capitalize">
       {{ usuario.nombre }} {{ usuario.apellido }}
     </h1>
-    <h3 class="titulo text-capitalize">desarrollador full stack jr.</h3>
+    <h3 class="titulo text-capitalize">{{ usuario.titulo }}</h3>
     <p class="texto-header">
-      Hola! soy Diego, un programador fullstack Jr. viviendo en Mendoza, Arg.
-      Encontré mi pasión por el mundo de la programación web a principios del
-      2020, y desde entonces no he parado de aprender y construir cosas. En este
-      momento estoy realizando el curso de
-      <span> Argentina Programa </span>
+      {{ usuario.descripcion }}
     </p>
   </div>
 </header>
