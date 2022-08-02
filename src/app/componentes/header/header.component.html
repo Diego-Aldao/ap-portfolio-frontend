@@ -1,10 +1,10 @@
-<header class="header-principal">
+<header *ngIf="usuario" class="header-principal">
   <div class="py-5 my-5 px-md-5">
     <div class="img-personal mb-4">
       <img src="../assets/images/me.webp" alt="imagen de diego aldao" />
     </div>
     <h1 class="nombre text-capitalize">
-      {{ usuario.nombre }} {{ usuario.apellido }}.
+      {{ usuario.nombre }} {{ usuario.apellido }}
     </h1>
     <h3 class="titulo text-capitalize">desarrollador full stack jr.</h3>
     <p class="texto-header">
