@@ -12,7 +12,11 @@ export class UsuarioService {
 
   constructor(private http: HttpClient) { }
 
-  public getUsuario(): Observable<Usuario>{
+  public getUsuario():Observable<Usuario>{
     return this.http.get<Usuario>(`${this.urlApiLocal}/usuario/id/1`)
+  }
+
+  public editarUsuario(usuario: Usuario):Observable<Usuario>{
+    return this.http.put<Usuario>(`${this.urlApiLocal}/usuario/editar`, usuario)
   }
 }
