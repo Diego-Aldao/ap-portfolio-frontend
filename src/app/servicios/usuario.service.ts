@@ -13,6 +13,6 @@ export class UsuarioService {
   constructor(private http: HttpClient) { }
 
   public getUsuario(): Observable<Usuario>{
-    return this.http.get<Usuario>(`${this.urlApiLocal}/usuario/id/3`)
+    return this.http.get<Usuario>(`${this.urlApiLocal}/usuario/id/1`)
   }
 }
