@@ -3,25 +3,25 @@
     <h2 class="text-capitalize"><span class="indice">01.</span> educación</h2>
   </header>
   <div
-    class="item-educacion mb-5 col-12 col-md-6 d-flex"
+    class="items mb-5 col-12 col-md-6 d-flex"
     *ngFor="let educacion of educaciones"
   >
-    <div class="logo-educacion me-3">
+    <div class="logos-items me-3">
       <img src="{{ educacion.imgEdu }}" alt="logo iters" />
     </div>
-    <div class="info-educacion">
+    <div class="info-items">
       <h3 class="text-capitalize">{{ educacion.institucionEdu }}</h3>
       <p class="fechas text-capitalize">
         {{ educacion.fechaIniEdu }} - {{ educacion.fechaFinEdu }}
       </p>
-      <h5 class="titulo-educacion text-capitalize">
+      <h5 class="titulo-items text-capitalize">
         {{ educacion.tituloEdu }}
       </h5>
-      <p class="descripcion-educacion">
+      <p class="descripcion-items">
         {{ educacion.descripcionEdu }}
       </p>
       <a
-        class="link-educacion link p-2 text-capitalize"
+        class="links-items link p-2 text-capitalize"
         href="{{ educacion.linkEdu }}"
         target="_blank"
         >ver sitio <i class="fa-solid fa-right-long"></i
