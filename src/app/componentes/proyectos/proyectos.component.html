@@ -2,152 +2,39 @@
   <header class="col-12 mb-4">
     <h2 class="text-capitalize"><span class="indice">03.</span> proyectos</h2>
   </header>
-  <div class="item-proyecto col-12 col-md-6 py-2">
-    <div class="imagen-proyecto"></div>
+  <div
+    class="item-proyecto col-12 col-md-6 py-2"
+    *ngFor="let proyecto of proyectos"
+  >
     <div class="contenido-proyecto">
-      <h3 class="nombre-proyecto text-capitalize">portfolio react</h3>
-      <p class="fechas">2022</p>
+      <h3 class="nombre-proyecto text-capitalize">{{ proyecto.tituloPro }}</h3>
+      <p class="fechas">{{ proyecto.fechaPro }}</p>
       <p class="descripcion-proyecto">
-        portfolio personal realizado con React, Node.js y mySql, donde expongo
-        los proyectos realizados, cursos, habilidades, etc.
+        {{ proyecto.descripcionPro }}
       </p>
       <p class="contenedor-tecnologias d-flex flex-column flex-md-row mb-3">
         <span class="tecnologia me-2 text-uppercase"
-          ><i class="fa-solid fa-caret-right me-2"></i>react</span
+          ><i class="fa-solid fa-caret-right me-2"></i
+          >{{ proyecto.mainTecno }}</span
         >
         <span class="tecnologia me-2 text-uppercase"
-          ><i class="fa-solid fa-caret-right me-2"></i>styled components</span
+          ><i class="fa-solid fa-caret-right me-2"></i
+          >{{ proyecto.subTecnoA }}</span
         >
         <span class="tecnologia text-uppercase"
-          ><i class="fa-solid fa-caret-right me-2"></i>react router</span
+          ><i class="fa-solid fa-caret-right me-2"></i
+          >{{ proyecto.subTecnoB }}</span
         >
       </p>
       <div class="d-flex justify-content-around justify-content-md-end">
         <a
-          href="https://github.com/Diego-Aldao/portfolio-react"
+          href="{{ proyecto.linkCode }}"
           target="_blank"
           class="text-capitalize me-md-5 link"
-          >ver codigo<i class="fa-brands fa-github ms-2"></i
+          >ver código<i class="fa-brands fa-github ms-2"></i
         ></a>
         <a
-          href="https://github.com/Diego-Aldao/portfolio-react"
-          target="_blank"
-          class="text-capitalize link"
-          >ver sitio<i class="fa-solid fa-square-arrow-up-right ms-2"></i
-        ></a>
-      </div>
-    </div>
-  </div>
-  <div class="item-proyecto col-12 col-md-6 py-2">
-    <div class="imagen-proyecto"></div>
-    <div class="contenido-proyecto">
-      <h3 class="nombre-proyecto text-capitalize">echo</h3>
-      <p class="fechas">2022</p>
-      <p class="descripcion-proyecto">
-        echo es un sitio para una empresa de diseño interior que necesite una
-        forma facil, eficaz y atractiva de compartir su trabajo
-      </p>
-      <p
-        class="contenedor-tecnologias d-flex flex-column flex-md-row mb-3 flex-wrap"
-      >
-        <span class="tecnologia me-2 text-uppercase"
-          ><i class="fa-solid fa-caret-right me-2"></i>react</span
-        >
-        <span class="tecnologia me-2 text-uppercase"
-          ><i class="fa-solid fa-caret-right me-2"></i>styled components</span
-        >
-        <span class="tecnologia me-2 text-uppercase"
-          ><i class="fa-solid fa-caret-right me-2"></i>formik</span
-        >
-        <span class="tecnologia me-2 text-uppercase"
-          ><i class="fa-solid fa-caret-right me-2"></i>yup</span
-        >
-        <span class="tecnologia text-uppercase"
-          ><i class="fa-solid fa-caret-right me-2"></i>react router</span
-        >
-      </p>
-      <div class="links d-flex justify-content-around justify-content-md-end">
-        <a
-          href="https://github.com/Diego-Aldao/echo"
-          target="_blank"
-          class="text-capitalize link"
-          >ver codigo<i class="fa-brands fa-github ms-2 me-md-5"></i
-        ></a>
-        <a
-          href="https://designecho.netlify.app/"
-          target="_blank"
-          class="text-capitalize link"
-          >ver sitio<i class="fa-solid fa-square-arrow-up-right ms-2"></i
-        ></a>
-      </div>
-    </div>
-  </div>
-  <div class="item-proyecto col-12 col-md-6 py-2">
-    <div class="imagen-proyecto"></div>
-    <div class="contenido-proyecto">
-      <h3 class="nombre-proyecto text-capitalize">covid-19 data</h3>
-      <p class="fechas">2022</p>
-      <p class="descripcion-proyecto">
-        covid-19 data es un proyecto que combina una api junto a un mapa
-        interactivo para hacer una exposición de los datos de covid a nivel
-        mundial
-      </p>
-      <p class="contenedor-tecnologias d-flex flex-column flex-md-row mb-3">
-        <span class="tecnologia me-2 text-uppercase"
-          ><i class="fa-solid fa-caret-right me-2"></i>react</span
-        >
-        <span class="tecnologia me-2 text-uppercase"
-          ><i class="fa-solid fa-caret-right me-2"></i>react dom</span
-        >
-        <span class="tecnologia text-uppercase"
-          ><i class="fa-solid fa-caret-right me-2"></i>tailwindcss</span
-        >
-      </p>
-      <div class="links d-flex justify-content-around justify-content-md-end">
-        <a
-          href="https://github.com/Diego-Aldao/covid19-data-react"
-          target="_blank"
-          class="text-capitalize link"
-          >ver codigo<i class="fa-brands fa-github ms-2 me-md-5"></i
-        ></a>
-        <a
-          href="https://github.com/Diego-Aldao/covid19-data-react"
-          target="_blank"
-          class="text-capitalize link"
-          >ver sitio<i class="fa-solid fa-square-arrow-up-right ms-2"></i
-        ></a>
-      </div>
-    </div>
-  </div>
-  <div class="item-proyecto col-12 col-md-6 py-2">
-    <div class="imagen-proyecto"></div>
-    <div class="contenido-proyecto">
-      <h3 class="nombre-proyecto text-capitalize">arcoiris kids</h3>
-      <p class="fechas">2021</p>
-      <p class="descripcion-proyecto">
-        ArcoirisKids es un sitio para una institución educativa que contiene
-        todo tipo de informacion como horarios, eventos, docentes, clases y más.
-      </p>
-      <p class="contenedor-tecnologias d-flex flex-column flex-md-row mb-3">
-        <span class="tecnologia me-2 text-uppercase"
-          ><i class="fa-solid fa-caret-right me-2"></i>html</span
-        >
-        <span class="tecnologia me-2 text-uppercase"
-          ><i class="fa-solid fa-caret-right me-2"></i>sass</span
-        >
-        <span class="tecnologia text-uppercase"
-          ><i class="fa-solid fa-caret-right me-2"></i>javascript</span
-        >
-      </p>
-      <div class="links d-flex justify-content-around justify-content-md-end">
-        <a
-          href="https://github.com/Diego-Aldao/escuela-primaria"
-          target="_blank"
-          class="text-capitalize link"
-          >ver codigo<i class="fa-brands fa-github ms-2 me-md-5"></i
-        ></a>
-        <a
-          href="https://arcoiriskids.netlify.app/"
+          href="{{ proyecto.linkSitio }}"
           target="_blank"
           class="text-capitalize link"
           >ver sitio<i class="fa-solid fa-square-arrow-up-right ms-2"></i
