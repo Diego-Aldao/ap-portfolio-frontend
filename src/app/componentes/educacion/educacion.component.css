@@ -10,10 +10,12 @@
     height: 50px;
     border-radius: 50%;
     border: 3px solid var(--color-principal);
+    background: #fff;
 }
 
 .logo-educacion img {
     border-radius: 50%;
+    object-fit: cover;
 }
 
 .info-educacion {
