@@ -15,46 +15,7 @@
 
 }
 
-.linea-1,
-.linea-2,
-.linea-3,
-.linea-4,
-.linea-5,
-.linea-6,
-.linea-7,
-.linea-8 {
+.linea-progreso {
     height: 100%;
     background: var(--color-principal);
-}
-
-.linea-1 {
-    width: 90%;
-}
-
-.linea-2 {
-    width: 80%;
-}
-
-.linea-3 {
-    width: 72%;
-}
-
-.linea-4 {
-    width: 50%;
-}
-
-.linea-5 {
-    width: 15%;
-}
-
-.linea-6 {
-    width: 25%;
-}
-
-.linea-7 {
-    width: 65%;
-}
-
-.linea-8 {
-    width: 12%;
 }
