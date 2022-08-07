@@ -1,0 +1,25 @@
+<section class="experiencia row mb-5">
+  <header class="col-12 mb-4">
+    <h2 class="text-capitalize"><span class="indice">01.</span> experiencia</h2>
+  </header>
+  <div
+    class="items mb-5 col-12 col-md-6 d-flex"
+    *ngFor="let experiencia of experiencias"
+  >
+    <div class="logos-items me-3">
+      <img src="{{ experiencia.imgExp }}" alt="logo iters" />
+    </div>
+    <div class="info-items">
+      <h3 class="text-capitalize">{{ experiencia.empresaExp }}</h3>
+      <p class="fechas">
+        {{ experiencia.fechaIniExp }}{{ experiencia.fechaFinExp }}/p>
+      </p>
+      <h5 class="titulo-experiencia text-capitalize">
+        {{ experiencia.tituloExp }}
+      </h5>
+      <p class="descripcion-items">
+        {{ experiencia.descripcionExp }}
+      </p>
+    </div>
+  </div>
+</section>
