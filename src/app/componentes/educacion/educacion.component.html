@@ -3,7 +3,11 @@
     <h2 class="text-capitalize mb-0">
       <span class="indice">02.</span> educación
     </h2>
-    <button class="icono-crud añadir p-1 px-2 ms-3 text-uppercase">
+    <button
+      class="icono-crud añadir p-1 px-2 ms-3 text-uppercase"
+      data-bs-toggle="modal"
+      data-bs-target="#modalAñadir"
+    >
       <span class="contenido-icono">
         añadir
         <i class="fa-solid fa-plus ms-3"></i>
@@ -48,6 +52,120 @@
         target="_blank"
         >ver sitio <i class="fa-solid fa-right-long"></i
       ></a>
+    </div>
+  </div>
+  <div
+    class="modal fade"
+    id="modalAñadir"
+    tabindex="-1"
+    aria-labelledby="tituloModalAñadir"
+    aria-hidden="true"
+  >
+    <!--MODALS-->
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title text-capitalize" id="tituloModalAñadir">
+            editar educación
+          </h5>
+          <button
+            type="button"
+            class="btn-close btn-close-white"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body d-md-flex align-items-center">
+          <div class="img-modal justify-content-center w-100 d-none d-lg-flex">
+            <img src="../../../assets/images/modales/educacion.svg" alt="" />
+          </div>
+          <form class="w-100">
+            <div class="mb-5 contenedor-input">
+              <input
+                type="text"
+                class="form-control"
+                id="institucionEdu"
+                name="institucionEdu"
+                placeholder="nombre de la institucion:"
+              />
+            </div>
+            <div class="mb-5 contenedor-input">
+              <input
+                type="text"
+                class="form-control"
+                id="tituloEdu"
+                name="tituloEdu"
+                placeholder="titulo de la educación:"
+              />
+            </div>
+            <div class="mb-5 contenedor-input">
+              <input
+                type="number"
+                class="form-control"
+                id="fechaIniEdu"
+                name="fechaIniEdu"
+                placeholder="año de inicio:"
+              />
+            </div>
+            <div class="mb-5 contenedor-input">
+              <input
+                type="number"
+                class="form-control"
+                id="fechaFinEdu"
+                name="fechaFinEdu"
+                placeholder="año de finalización:"
+              />
+            </div>
+            <div class="mb-5 contenedor-input">
+              <input
+                type="text"
+                class="form-control"
+                id="linkEdu"
+                name="linkEdu"
+                placeholder="descripción:"
+              />
+            </div>
+            <div class="mb-5 contenedor-input">
+              <input
+                type="text"
+                class="form-control"
+                id="imgEdu"
+                name="imgEdu"
+                placeholder="link de la educación:"
+              />
+            </div>
+            <div class="mb-5 contenedor-input">
+              <input
+                type="text"
+                class="form-control"
+                id="institucionEdu"
+                name="institucionEdu"
+                placeholder="link imagen de la educación:"
+              />
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button
+            class="icono-crud eliminar p-1 px-2 ms-3 text-uppercase"
+            data-bs-dismiss="modal"
+          >
+            <span class="contenido-icono">
+              cerrar
+              <i class="fa-solid fa-xmark ms-3"></i>
+            </span>
+          </button>
+          <button
+            class="icono-crud añadir p-1 px-2 ms-3 text-uppercase"
+            data-bs-dismiss="modal"
+          >
+            <span class="contenido-icono">
+              agregar
+              <i class="fa-solid fa-plus ms-3"></i>
+            </span>
+          </button>
+        </div>
+      </div>
     </div>
   </div>
 </section>
