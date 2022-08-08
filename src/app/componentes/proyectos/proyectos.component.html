@@ -1,12 +1,33 @@
 <section class="proyectos row">
-  <header class="col-12 mb-4">
+  <header class="col-12 mb-4 d-flex align-items-center">
     <h2 class="text-capitalize"><span class="indice">03.</span> proyectos</h2>
+    <button class="icono-crud añadir p-1 px-2 ms-3 text-uppercase">
+      <span class="contenido-icono">
+        añadir
+        <i class="fa-solid fa-plus ms-3"></i>
+      </span>
+    </button>
   </header>
   <div
     class="item-proyecto col-12 col-md-6 py-2"
     *ngFor="let proyecto of proyectos"
   >
+    <div class="col-12 mb-3 d-flex justify-content-end">
+      <button class="icono-crud editar p-1 px-2 text-uppercase">
+        <span class="contenido-icono">
+          editar
+          <i class="fa-solid fa-pen ms-3"></i>
+        </span>
+      </button>
+      <button class="icono-crud eliminar p-1 px-2 ms-3 text-uppercase">
+        <span class="contenido-icono">
+          eliminar
+          <i class="fa-solid fa-xmark ms-3"></i>
+        </span>
+      </button>
+    </div>
     <div class="contenido-proyecto">
+      <div class="imagen-proyecto"></div>
       <h3 class="nombre-proyecto text-capitalize">{{ proyecto.tituloPro }}</h3>
       <p class="fechas">{{ proyecto.fechaPro }}</p>
       <p class="descripcion-proyecto">

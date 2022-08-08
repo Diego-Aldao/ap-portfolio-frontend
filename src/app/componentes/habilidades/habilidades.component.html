@@ -1,18 +1,40 @@
 <section class="habilidades row mb-5">
-  <header class="col-12 mb-4">
+  <header class="col-12 mb-4 d-flex align-items-center">
     <h2 class="text-capitalize"><span class="indice">02.</span> habilidades</h2>
+    <button class="icono-crud añadir p-1 px-2 ms-3 text-uppercase">
+      <span class="contenido-icono">
+        añadir
+        <i class="fa-solid fa-plus ms-3"></i>
+      </span>
+    </button>
   </header>
   <div
-    class="item-habilidad d-flex align-items-center col-12 col-sm-6 mb-3 mb-md-5"
+    class="items col-12 col-sm-6 mb-3 mb-md-5"
     *ngFor="let habilidad of habilidades"
   >
-    <span></span>
-    <p class="text-uppercase ms-3">{{ habilidad.nombreHab }}</p>
-    <div class="contenedor-linea ms-5">
-      <div
-        class="linea-progreso"
-        [ngStyle]="{ width: habilidad.porcentajeHab + '%' }"
-      ></div>
+    <div class="col-12 mb-3 d-flex justify-content-end">
+      <button class="icono-crud editar p-1 px-2 text-uppercase">
+        <span class="contenido-icono">
+          editar
+          <i class="fa-solid fa-pen ms-3"></i>
+        </span>
+      </button>
+      <button class="icono-crud eliminar p-1 px-2 ms-3 text-uppercase">
+        <span class="contenido-icono">
+          eliminar
+          <i class="fa-solid fa-xmark ms-3"></i>
+        </span>
+      </button>
+    </div>
+    <div class="info-habilidades d-flex align-items-center">
+      <span></span>
+      <p class="text-uppercase ms-3">{{ habilidad.nombreHab }}</p>
+      <div class="contenedor-linea ms-5">
+        <div
+          class="linea-progreso"
+          [ngStyle]="{ width: habilidad.porcentajeHab + '%' }"
+        ></div>
+      </div>
     </div>
   </div>
 </section>
