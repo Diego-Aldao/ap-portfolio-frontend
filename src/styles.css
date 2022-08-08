@@ -193,3 +193,62 @@ html .btn:hover {
 .icono-crud:hover::after {
     left: 0;
 }
+
+/*MODALS*/
+
+/*para poder reemplazar propiedades de bootstrap, la mayoria de veces
+tengo escribir al parent tambien*/
+
+html .modal-content {
+    background: var(--color-negro);
+    color: var(--color-titulos);
+}
+
+.modal-content .modal-header {
+    border: none;
+    background: #1b2a44;
+    border-top: 1px solid var(--color-principal);
+}
+
+.modal-content .modal-title {
+    font-size: 24px;
+}
+
+.modal-content .modal-footer {
+    border: none;
+}
+
+.img-modal {
+    max-height: 250px;
+    width: 50%;
+}
+
+.img-modal img {
+    width: 250px;
+    height: 100%;
+    object-fit: cover;
+}
+
+.modal-content .form-control {
+    border: none;
+    outline: none;
+    background: var(--color-negro);
+    color: var(--color-titulos);
+}
+
+.contenedor-input {
+    border-bottom: 1px solid var(--color-principal);
+}
+
+.modal-content .form-control::placeholder {
+    color: var(--color-textos);
+    text-transform: capitalize;
+}
+
+.modal-content .form-control:focus {
+    background: var(--color-negro);
+    outline-style: solid;
+    outline-color: var(--color-principal);
+    outline-width: 2px;
+    color: var(--color-titulos);
+}
