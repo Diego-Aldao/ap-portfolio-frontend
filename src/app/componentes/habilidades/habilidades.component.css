@@ -1,6 +1,6 @@
 /*HABILIDADES*/
 
-.item-habilidad span {
+.info-habilidades span {
     min-width: 5px;
     height: 5px;
     background: var(--color-principal);
