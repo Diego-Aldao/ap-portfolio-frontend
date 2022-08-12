@@ -29,58 +29,51 @@ export class EducacionComponent implements OnInit {
     )
   }
 
-  /*Funcion para que al clickear algun boton del crud
-  agregue un boton que, dependeiendo el modo que reciba, abra el modal correspondiente*/ 
-  public onOpenModal(modo: string, educacion?: Educacion): void {
-    const contenedor = document.getElementById("educacion");
-    const boton = document.createElement("button");
-    boton.type = "button";
-    boton.style.display = "none";
-    boton.setAttribute("data-bs-toggle", "modal");
-    if(modo === "agregar"){
-      boton.setAttribute("data-bs-target", "#modal-agregar-edu")
-    }else if(modo === "editar"){
-      this.editarEducacion = educacion;
-      boton.setAttribute("data-bs-target", "#modal-editar-edu")
-    }else if(modo === "eliminar"){
-      this.borrarEducacion = educacion;
-      boton.setAttribute("data-bs-target", "#modal-eliminar-edu")
-    }
-    contenedor?.appendChild(boton);
-    boton.click();
-  }
+  public onOpenModal(target?: string, educacion?: Educacion): void {
+    if(target === "editar"){
+     this.editarEducacion = educacion;
+   }else if(target === "eliminar"){
+     this.borrarEducacion = educacion;
+   }
+ }
 
   public onAgregarEdu(formAgregar: NgForm):void{
     this.educacionService.añadirEducacion(formAgregar.value).subscribe(
-      (response: Educacion) =>{
-        this.getEducaciones();
-        formAgregar.reset();
-      },
-      (error: HttpErrorResponse) =>{
-        alert(error.message)
-        formAgregar.reset();
+      {
+        next: () =>{
+          this.getEducaciones();
+          formAgregar.reset();
+        },
+        error: (error: HttpErrorResponse) =>{
+          console.log(error.message)
+          formAgregar.reset();
+        }
       }
     )    
   }
 
   public onEditarEdu(educacion: Educacion):void{
     this.educacionService.editarEducacion(educacion).subscribe(
-      (response: Educacion) =>{
-        this.getEducaciones();
-      },
-      (error: HttpErrorResponse) =>{
-        alert(error.message)
+      {
+        next: () =>{
+          this.getEducaciones();
+        },
+        error: (error: HttpErrorResponse) =>{
+          console.log(error.message)
+        }
       }
     ) 
   }
 
   public onEliminarEdu(educacionId: number):void{
     this.educacionService.eliminarEducacion(educacionId).subscribe(
-      (response: void) =>{
-        this.getEducaciones();
-      },
-      (error: HttpErrorResponse) =>{
-        alert(error.message)
+      {
+        next: () =>{
+          this.getEducaciones();
+        },
+        error: (error: HttpErrorResponse) =>{
+          console.log(error.message)
+        }
       }
     ) 
   }

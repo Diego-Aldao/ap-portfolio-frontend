@@ -29,58 +29,51 @@ export class ExperienciaComponent implements OnInit {
     )
   }
 
-  /*Funcion para que al clickear algun boton del crud
-  Agregue un boton que depende el modo que reciba, abra el modal correspondiente*/ 
-  public onOpenModal(modo: string, experiencia?: Experiencia): void {
-    const contenedor = document.getElementById("experiencia");
-    const boton = document.createElement("button");
-    boton.type = "button";
-    boton.style.display = "none";
-    boton.setAttribute("data-bs-toggle", "modal");
-    if(modo === "agregar"){
-      boton.setAttribute("data-bs-target", "#modal-agregar-exp")
-    }else if(modo === "editar"){
-      this.editarExperiencia = experiencia;
-      boton.setAttribute("data-bs-target", "#modal-editar-exp")
-    }else if(modo === "eliminar"){
-      this.borrarExperiencia = experiencia;
-      boton.setAttribute("data-bs-target", "#modal-eliminar-exp")
-    }
-    contenedor?.appendChild(boton);
-    boton.click();
-  }
+  public onOpenModal(target?: string, experiencia?: Experiencia): void {
+    if(target === "editar"){
+     this.editarExperiencia = experiencia;
+   }else if(target === "eliminar"){
+     this.borrarExperiencia = experiencia;
+   }
+ }
 
   public onAgregarExp(formAgregar: NgForm):void{
     this.experienciaService.añadirExperiencia(formAgregar.value).subscribe(
-      (response: Experiencia) =>{
-        this.getExperiencias();
-        formAgregar.reset();
-      },
-      (error: HttpErrorResponse) =>{
-        alert(error.message)
-        formAgregar.reset();
+      {
+        next: () =>{
+          this.getExperiencias();
+          formAgregar.reset();
+        },
+        error: (error: HttpErrorResponse) =>{
+          console.log(error.message)
+          formAgregar.reset();
+        }
       }
     )    
   }
 
   public onEditarExp(experiencia: Experiencia):void{
     this.experienciaService.editarExperiencia(experiencia).subscribe(
-      (response: Experiencia) =>{
-        this.getExperiencias();
-      },
-      (error: HttpErrorResponse) =>{
-        alert(error.message)
+      {
+        next: () =>{
+          this.getExperiencias();
+        },
+        error: (error: HttpErrorResponse) =>{
+          console.log(error.message)
+        }
       }
     ) 
   }
 
   public onEliminarExp(experienciaId: number):void{
     this.experienciaService.eliminarExperiencia(experienciaId).subscribe(
-      (response: void) =>{
-        this.getExperiencias();
-      },
-      (error: HttpErrorResponse) =>{
-        alert(error.message)
+      {
+        next: () =>{
+          this.getExperiencias();
+        },
+        error: (error: HttpErrorResponse) =>{
+          console.log(error.message)
+        }
       }
     ) 
   }

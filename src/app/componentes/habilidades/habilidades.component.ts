@@ -29,58 +29,51 @@ export class HabilidadesComponent implements OnInit {
     )
   }
 
-  /*Funcion para que al clickear algun boton del crud
-  agregue un boton que, dependeiendo el modo que reciba, abra el modal correspondiente*/ 
-  public onOpenModal(modo: string, habilidad?: Habilidad): void {
-    const contenedor = document.getElementById("habilidad");
-    const boton = document.createElement("button");
-    boton.type = "button";
-    boton.style.display = "none";
-    boton.setAttribute("data-bs-toggle", "modal");
-    if(modo === "agregar"){
-      boton.setAttribute("data-bs-target", "#modal-agregar-hab")
-    }else if(modo === "editar"){
-      this.editarHabilidad = habilidad;
-      boton.setAttribute("data-bs-target", "#modal-editar-hab")
-    }else if(modo === "eliminar"){
-      this.borrarHabilidad = habilidad;
-      boton.setAttribute("data-bs-target", "#modal-eliminar-hab")
-    }
-    contenedor?.appendChild(boton);
-    boton.click();
-  }
+  public onOpenModal(target?: string, habilidad?: Habilidad): void {
+    if(target === "editar"){
+     this.editarHabilidad = habilidad;
+   }else if(target === "eliminar"){
+     this.borrarHabilidad = habilidad;
+   }
+ }
 
   public onAgregarHab(formAgregar: NgForm):void{
     this.habilidadService.añadirHabilidad(formAgregar.value).subscribe(
-      (response: Habilidad) =>{
-        this.getHabilidades();
-        formAgregar.reset();
-      },
-      (error: HttpErrorResponse) =>{
-        alert(error.message)
-        formAgregar.reset();
+      {
+        next: () =>{
+          this.getHabilidades();
+          formAgregar.reset();
+        },
+        error: (error: HttpErrorResponse) =>{
+          console.log(error.message)
+          formAgregar.reset();
+        }
       }
     )    
   }
 
   public onEditarHab(habilidad: Habilidad):void{
     this.habilidadService.editarHabilidad(habilidad).subscribe(
-      (response: Habilidad) =>{
-        this.getHabilidades();
-      },
-      (error: HttpErrorResponse) =>{
-        alert(error.message)
+      {
+        next: () =>{
+          this.getHabilidades();
+        },
+        error: (error: HttpErrorResponse) =>{
+          console.log(error.message)
+        }
       }
     ) 
   }
 
   public onEliminarHab(habilidadId: number):void{
     this.habilidadService.eliminarHabilidad(habilidadId).subscribe(
-      (response: void) =>{
-        this.getHabilidades();
-      },
-      (error: HttpErrorResponse) =>{
-        alert(error.message)
+      {
+        next: () =>{
+          this.getHabilidades();
+        },
+        error: (error: HttpErrorResponse) =>{
+          console.log(error.message)
+        }
       }
     ) 
   }
