@@ -1,12 +1,11 @@
-<section class="educacion row mb-5">
+<section class="educacion row mb-5" id="educacion">
   <header class="col-12 mb-4 d-flex align-items-center">
     <h2 class="text-capitalize mb-0">
       <span class="indice">02.</span> educación
     </h2>
     <button
       class="icono-crud añadir p-1 px-2 ms-3 text-uppercase"
-      data-bs-toggle="modal"
-      data-bs-target="#modalAñadir"
+      (click)="onOpenModal('agregar')"
     >
       <span class="contenido-icono">
         añadir
@@ -19,13 +18,19 @@
     *ngFor="let educacion of educaciones"
   >
     <div class="col-12 mb-3 d-flex justify-content-end">
-      <button class="icono-crud editar p-1 px-2 text-uppercase">
+      <button
+        (click)="onOpenModal('editar', educacion)"
+        class="icono-crud editar p-1 px-2 text-uppercase"
+      >
         <span class="contenido-icono">
           editar
           <i class="fa-solid fa-pen ms-3"></i>
         </span>
       </button>
-      <button class="icono-crud eliminar p-1 px-2 ms-3 text-uppercase">
+      <button
+        (click)="onOpenModal('eliminar', educacion)"
+        class="icono-crud eliminar p-1 px-2 ms-3 text-uppercase"
+      >
         <span class="contenido-icono">
           eliminar
           <i class="fa-solid fa-xmark ms-3"></i>
@@ -54,19 +59,19 @@
       ></a>
     </div>
   </div>
+  <!--MODAL AGREGAR EDU-->
   <div
     class="modal fade"
-    id="modalAñadir"
+    id="modal-agregar-edu"
     tabindex="-1"
-    aria-labelledby="tituloModalAñadir"
+    aria-labelledby="tituloModalAñadirEdu"
     aria-hidden="true"
   >
-    <!--MODALS-->
     <div class="modal-dialog modal-dialog-centered modal-lg">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title text-capitalize" id="tituloModalAñadir">
-            editar educación
+          <h5 class="modal-title text-capitalize" id="tituloModalAñadirEdu">
+            añadir Educación
           </h5>
           <button
             type="button"
@@ -79,9 +84,14 @@
           <div class="img-modal justify-content-center w-100 d-none d-lg-flex">
             <img src="../../../assets/images/modales/educacion.svg" alt="" />
           </div>
-          <form class="w-100">
+          <form
+            #formAgregar="ngForm"
+            (ngSubmit)="onAgregarEdu(formAgregar)"
+            class="w-100"
+          >
             <div class="mb-5 contenedor-input">
               <input
+                ngModel
                 type="text"
                 class="form-control"
                 id="institucionEdu"
@@ -91,15 +101,17 @@
             </div>
             <div class="mb-5 contenedor-input">
               <input
+                ngModel
                 type="text"
                 class="form-control"
                 id="tituloEdu"
                 name="tituloEdu"
-                placeholder="titulo de la educación:"
+                placeholder="titulo de la educacion:"
               />
             </div>
             <div class="mb-5 contenedor-input">
               <input
+                ngModel
                 type="number"
                 class="form-control"
                 id="fechaIniEdu"
@@ -109,6 +121,7 @@
             </div>
             <div class="mb-5 contenedor-input">
               <input
+                ngModel
                 type="number"
                 class="form-control"
                 id="fechaFinEdu"
@@ -118,51 +131,229 @@
             </div>
             <div class="mb-5 contenedor-input">
               <input
+                ngModel
                 type="text"
                 class="form-control"
-                id="linkEdu"
-                name="linkEdu"
+                id="descripcionEdu"
+                name="descripcionEdu"
                 placeholder="descripción:"
               />
             </div>
             <div class="mb-5 contenedor-input">
               <input
+                ngModel
                 type="text"
                 class="form-control"
-                id="imgEdu"
-                name="imgEdu"
-                placeholder="link de la educación:"
+                id="linkEdu"
+                name="linkEdu"
+                placeholder="link educacion:"
               />
             </div>
             <div class="mb-5 contenedor-input">
               <input
+                ngModel
+                type="text"
+                class="form-control"
+                id="imgEdu"
+                name="imgEdu"
+                placeholder="link imagen:"
+              />
+            </div>
+            <div class="modal-footer">
+              <button
+                class="icono-crud default p-1 px-2 ms-3 text-uppercase"
+                data-bs-dismiss="modal"
+              >
+                <span class="contenido-icono">cerrar</span>
+              </button>
+              <button
+                [disabled]="formAgregar.invalid"
+                class="icono-crud añadir p-1 px-2 ms-3 text-uppercase btn"
+                type="submit"
+                data-bs-dismiss="modal"
+              >
+                <span class="contenido-icono"
+                  >agregar<i class="fa-solid fa-plus ms-3"></i>
+                </span>
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--MODAL EDITAR EXP-->
+  <div
+    class="modal fade"
+    id="modal-editar-edu"
+    tabindex="-1"
+    aria-labelledby="tituloModalEditarEdu"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title text-capitalize" id="tituloModalEditarEdu">
+            editar Educacion
+          </h5>
+          <button
+            type="button"
+            class="btn-close btn-close-white"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body d-md-flex align-items-center">
+          <div class="img-modal justify-content-center w-100 d-none d-lg-flex">
+            <img src="../../../assets/images/modales/educacion.svg" alt="" />
+          </div>
+          <form #formEditar="ngForm" class="w-100">
+            <input
+              type="hidden"
+              ngModel="{{ editarEducacion?.idEdu }}"
+              name="idEdu"
+              class="form-control"
+              id="id"
+              placeholder=""
+            />
+            <div class="mb-5 contenedor-input">
+              <input
+                ngModel="{{ editarEducacion?.institucionEdu }}"
                 type="text"
                 class="form-control"
                 id="institucionEdu"
                 name="institucionEdu"
-                placeholder="link imagen de la educación:"
+                placeholder="nombre de la institucion:"
               />
+            </div>
+            <div class="mb-5 contenedor-input">
+              <input
+                ngModel="{{ editarEducacion?.tituloEdu }}"
+                type="text"
+                class="form-control"
+                id="tituloEdu"
+                name="tituloEdu"
+                placeholder="titulo de la Educacion:"
+              />
+            </div>
+            <div class="mb-5 contenedor-input">
+              <input
+                ngModel="{{ editarEducacion?.fechaIniEdu }}"
+                type="number"
+                class="form-control"
+                id="fechaIniEdu"
+                name="fechaIniEdu"
+                placeholder="año de inicio:"
+              />
+            </div>
+            <div class="mb-5 contenedor-input">
+              <input
+                n
+                ngModel="{{ editarEducacion?.fechaFinEdu }}"
+                type="number"
+                class="form-control"
+                id="fechaFinEdu"
+                name="fechaFinEdu"
+                placeholder="año de finalización:"
+              />
+            </div>
+            <div class="mb-5 contenedor-input">
+              <input
+                ngModel="{{ editarEducacion?.descripcionEdu }}"
+                type="text"
+                class="form-control"
+                id="descripcionEdu"
+                name="descripcionEdu"
+                placeholder="descripción:"
+              />
+            </div>
+            <div class="mb-5 contenedor-input">
+              <input
+                ngModel="{{ editarEducacion?.linkEdu }}"
+                type="text"
+                class="form-control"
+                id="linkEdu"
+                name="linkEdu"
+                placeholder="link educacion:"
+              />
+            </div>
+            <div class="mb-5 contenedor-input">
+              <input
+                ngModel="{{ editarEducacion?.imgEdu }}"
+                type="text"
+                class="form-control"
+                id="imgEdu"
+                name="imgEdu"
+                placeholder="link imagen:"
+              />
+            </div>
+            <div class="modal-footer">
+              <button
+                class="icono-crud default p-1 px-2 ms-3 text-uppercase"
+                data-bs-dismiss="modal"
+              >
+                <span class="contenido-icono"> cerrar </span>
+              </button>
+              <button
+                [disabled]="formAgregar.invalid"
+                class="icono-crud añadir p-1 px-2 ms-3 text-uppercase btn"
+                type="submit"
+                data-bs-dismiss="modal"
+                (click)="onEditarEdu(formEditar.value)"
+              >
+                <span class="contenido-icono">
+                  editar
+                  <i class="fa-solid fa-pen ms-3"></i>
+                </span>
+              </button>
             </div>
           </form>
         </div>
+      </div>
+    </div>
+  </div>
+  <!--MODAL ELIMINAR Edu-->
+  <div
+    class="modal fade"
+    id="modal-eliminar-edu"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="tituloModalEliminarEdu"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title text-capitalize" id="tituloModalEliminarEdu">
+            eliminar educacion
+          </h5>
+          <button
+            type="button"
+            class="btn-close btn-close-white"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body text-capitalize">
+          estas seguro de eliminar esta Educación?
+        </div>
         <div class="modal-footer">
           <button
-            class="icono-crud eliminar p-1 px-2 ms-3 text-uppercase"
-            data-bs-dismiss="modal"
+            type="button"
+            class="btn icono-crud default p-1 px-2 ms-3 text-uppercase"
+            data-dismiss="modal"
           >
-            <span class="contenido-icono">
-              cerrar
-              <i class="fa-solid fa-xmark ms-3"></i>
-            </span>
+            <span class="contenido-icono">cerrar</span>
           </button>
           <button
-            class="icono-crud añadir p-1 px-2 ms-3 text-uppercase"
+            (click)="onEliminarEdu(borrarEducacion!.idEdu)"
+            type="button"
+            class="btn icono-crud eliminar p-1 px-2 ms-3 text-uppercase"
             data-bs-dismiss="modal"
           >
-            <span class="contenido-icono">
-              agregar
-              <i class="fa-solid fa-plus ms-3"></i>
-            </span>
+            <span class="contenido-icono"
+              >eliminar<i class="fa-solid fa-xmark ms-3"></i
+            ></span>
           </button>
         </div>
       </div>
