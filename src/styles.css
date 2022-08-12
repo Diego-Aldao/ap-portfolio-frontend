@@ -9,6 +9,7 @@
     --color-negro: #0a192f;
     --fuente-principal: 'Monterrat', sans-serif;
     --fuente-secundaria: 'Mulish', sans-serif;
+    --color-negro-secundario: #1b2a44;
 }
 
 
@@ -81,7 +82,7 @@ html body {
     color: var(--color-titulos);
 }
 
-html .btn {
+html .boton {
     font-family: var(--fuente-secundaria);
     letter-spacing: 1px;
     font-weight: 600;
@@ -90,7 +91,7 @@ html .btn {
     border: 1px solid var(--color-principal);
 }
 
-html .btn:hover {
+html .boton:hover {
     color: var(--color-principal);
     background: var(--color-negro);
 }
@@ -151,7 +152,7 @@ html .btn:hover {
 
 /*MODO EDICION*/
 
-.icono-crud {
+html .icono-crud {
     border-radius: 5px;
     background: var(--color-textos);
     max-height: 32px;
@@ -171,6 +172,22 @@ html .btn:hover {
     transition: all .2s ease-in-out;
 }
 
+.añadir {
+    box-shadow: 3px 3px rgb(31, 206, 84);
+}
+
+.editar {
+    box-shadow: 3px 3px rgb(203, 206, 31);
+}
+
+.eliminar {
+    box-shadow: 3px 3px rgb(206, 31, 31);
+}
+
+.default {
+    box-shadow: 3px 3px var(--color-titulos);
+}
+
 .añadir::after {
     background: rgb(31, 206, 84);
 }
@@ -181,6 +198,10 @@ html .btn:hover {
 
 .eliminar::after {
     background: rgb(206, 31, 31);
+}
+
+.default::after {
+    background: var(--color-titulos);
 }
 
 .contenido-icono {
@@ -200,13 +221,13 @@ html .btn:hover {
 tengo escribir al parent tambien*/
 
 html .modal-content {
-    background: var(--color-negro);
+    background: var(--color-negro-secundario);
     color: var(--color-titulos);
+    position: relative;
 }
 
 .modal-content .modal-header {
     border: none;
-    background: #1b2a44;
     border-top: 1px solid var(--color-principal);
 }
 
