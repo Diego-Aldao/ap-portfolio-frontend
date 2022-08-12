@@ -1,4 +1,4 @@
-<header *ngIf="usuario" class="header-principal">
+<header *ngIf="usuario" class="header-principal" id="usuario">
   <div class="py-5 my-5 px-md-5">
     <div class="mb-4 d-flex justify-content-between">
       <img
@@ -6,7 +6,12 @@
         src="{{ usuario.img }}"
         alt="imagen de diego aldao"
       />
-      <button class="icono-crud editar p-1 px-2 text-uppercase">
+      <button
+        data-bs-toggle="modal"
+        data-bs-target="#modal-editar-us"
+        (click)="onOpenModal(usuario)"
+        class="icono-crud editar p-1 px-2 text-uppercase"
+      >
         <span class="contenido-icono">
           editar usuario<i class="fa-solid fa-pen ms-3"></i>
         </span>
@@ -19,5 +24,125 @@
     <p class="texto-header">
       {{ usuario.descripcion }}
     </p>
+  </div>
+  <!--MODAL EDITAR US-->
+  <div
+    class="modal fade"
+    id="modal-editar-us"
+    tabindex="-1"
+    aria-labelledby="tituloModalEditarUs"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title text-capitalize" id="tituloModalEditarUs">
+            editar Usuario
+          </h5>
+          <button
+            type="button"
+            class="btn-close btn-close-white"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body d-md-flex align-items-center">
+          <div class="img-modal justify-content-center w-100 d-none d-lg-flex">
+            <img src="../../../assets/images/modales/Proyecto.svg" alt="" />
+          </div>
+          <form #formEditar="ngForm" class="w-100">
+            <input
+              type="hidden"
+              ngModel="{{ editarUsuario?.id }}"
+              name="id"
+              class="form-control"
+              id="id"
+              placeholder=""
+            />
+            <div class="mb-5 contenedor-input">
+              <input
+                ngModel="{{ editarUsuario?.nombre }}"
+                type="text"
+                class="form-control"
+                id="nombre"
+                name="nombre"
+                placeholder="titulo de la Proyecto:"
+              />
+            </div>
+            <div class="mb-5 contenedor-input">
+              <input
+                ngModel="{{ editarUsuario?.apellido }}"
+                type="text"
+                class="form-control"
+                id="apellido"
+                name="apellido"
+                placeholder="año de inicio:"
+              />
+            </div>
+            <div class="mb-5 contenedor-input">
+              <input
+                ngModel="{{ editarUsuario?.img }}"
+                type="text"
+                class="form-control"
+                id="img"
+                name="img"
+                placeholder="link imagen perfil:"
+              />
+            </div>
+            <div class="mb-5 contenedor-input">
+              <input
+                ngModel="{{ editarUsuario?.titulo }}"
+                type="text"
+                class="form-control"
+                id="titulo"
+                name="titulo"
+                placeholder="titulo:"
+              />
+            </div>
+            <div class="mb-5 contenedor-input">
+              <input
+                ngModel="{{ editarUsuario?.descripcion }}"
+                type="text"
+                class="form-control"
+                id="descripcion"
+                name="descripcion"
+                placeholder="descripción:"
+              />
+            </div>
+            <div class="mb-5 contenedor-input">
+              <input
+                ngModel="{{ editarUsuario?.imgPortada }}"
+                type="text"
+                class="form-control"
+                id="imgPortada"
+                name="imgPortada"
+                placeholder="link img portada:"
+              />
+            </div>
+
+            <div class="modal-footer">
+              <button
+                class="icono-crud default p-1 px-2 ms-3 text-uppercase"
+                data-bs-dismiss="modal"
+              >
+                <span class="contenido-icono"> cerrar </span>
+              </button>
+              <button
+                [disabled]="formEditar.invalid"
+                class="icono-crud añadir p-1 px-2 ms-3 text-uppercase btn"
+                type="submit"
+                data-bs-dismiss="modal"
+                (click)="onEditarPro(formEditar.value)"
+              >
+                <span class="contenido-icono">
+                  editar
+                  <i class="fa-solid fa-pen ms-3"></i>
+                </span>
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
   </div>
 </header>
