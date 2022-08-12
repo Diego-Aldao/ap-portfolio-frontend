@@ -1,25 +1,36 @@
-<section class="experiencia row mb-5">
+<section class="experiencia row mb-5" id="experiencia">
   <header class="col-12 mb-4 d-flex align-items-center">
     <h2 class="text-capitalize"><span class="indice">01.</span> experiencia</h2>
-    <button class="icono-crud añadir p-1 px-2 ms-3 text-uppercase">
+    <button
+      class="icono-crud añadir p-1 px-2 ms-3 text-uppercase"
+      (click)="onOpenModal('agregar')"
+    >
       <span class="contenido-icono">
         añadir
         <i class="fa-solid fa-plus ms-3"></i>
       </span>
     </button>
   </header>
+  <!--ITEMS EXPERIENCIA-->
   <div
     class="items mb-5 col-12 col-md-6 d-flex flex-wrap"
     *ngFor="let experiencia of experiencias"
   >
+    <!--BOTONES EDICION-->
     <div class="col-12 mb-3 d-flex justify-content-end">
-      <button class="icono-crud editar p-1 px-2 text-uppercase">
+      <button
+        class="icono-crud editar p-1 px-2 text-uppercase"
+        (click)="onOpenModal('editar', experiencia)"
+      >
         <span class="contenido-icono">
           editar
           <i class="fa-solid fa-pen ms-3"></i>
         </span>
       </button>
-      <button class="icono-crud eliminar p-1 px-2 ms-3 text-uppercase">
+      <button
+        class="icono-crud eliminar p-1 px-2 ms-3 text-uppercase"
+        (click)="onOpenModal('eliminar', experiencia)"
+      >
         <span class="contenido-icono">
           eliminar
           <i class="fa-solid fa-xmark ms-3"></i>
@@ -40,6 +51,286 @@
       <p class="descripcion-items">
         {{ experiencia.descripcionExp }}
       </p>
+    </div>
+  </div>
+  <!--MODAL AGREGAR EXP-->
+  <div
+    class="modal fade"
+    id="modal-agregar-exp"
+    tabindex="-1"
+    aria-labelledby="tituloModalAñadirExp"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title text-capitalize" id="tituloModalAñadirExp">
+            añadir experiencia
+          </h5>
+          <button
+            type="button"
+            class="btn-close btn-close-white"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body d-md-flex align-items-center">
+          <div class="img-modal justify-content-center w-100 d-none d-lg-flex">
+            <img src="../../../assets/images/modales/educacion.svg" alt="" />
+          </div>
+          <form
+            #formAgregar="ngForm"
+            (ngSubmit)="onAgregarExp(formAgregar)"
+            class="w-100"
+          >
+            <div class="mb-5 contenedor-input">
+              <input
+                ngModel
+                type="text"
+                class="form-control"
+                id="empresaExp"
+                name="empresaExp"
+                placeholder="nombre de la empresa:"
+              />
+            </div>
+            <div class="mb-5 contenedor-input">
+              <input
+                ngModel
+                type="text"
+                class="form-control"
+                id="tituloExp"
+                name="tituloExp"
+                placeholder="titulo de la experiencia:"
+              />
+            </div>
+            <div class="mb-5 contenedor-input">
+              <input
+                ngModel
+                type="number"
+                class="form-control"
+                id="fechaIniExp"
+                name="fechaIniExp"
+                placeholder="año de inicio:"
+              />
+            </div>
+            <div class="mb-5 contenedor-input">
+              <input
+                ngModel
+                type="number"
+                class="form-control"
+                id="fechaFinExp"
+                name="fechaFinExp"
+                placeholder="año de finalización:"
+              />
+            </div>
+            <div class="mb-5 contenedor-input">
+              <input
+                ngModel
+                type="text"
+                class="form-control"
+                id="descripcionExp"
+                name="descripcionExp"
+                placeholder="descripción:"
+              />
+            </div>
+            <div class="mb-5 contenedor-input">
+              <input
+                ngModel
+                type="text"
+                class="form-control"
+                id="imgExp"
+                name="imgExp"
+                placeholder="link imagen:"
+              />
+            </div>
+            <div class="modal-footer">
+              <button
+                class="icono-crud default p-1 px-2 ms-3 text-uppercase"
+                data-bs-dismiss="modal"
+              >
+                <span class="contenido-icono">cerrar</span>
+              </button>
+              <button
+                [disabled]="formAgregar.invalid"
+                class="icono-crud añadir p-1 px-2 ms-3 text-uppercase btn"
+                type="submit"
+                data-bs-dismiss="modal"
+              >
+                <span class="contenido-icono"
+                  >agregar<i class="fa-solid fa-plus ms-3"></i>
+                </span>
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--MODAL EDITAR EXP-->
+  <div
+    class="modal fade"
+    id="modal-editar-exp"
+    tabindex="-1"
+    aria-labelledby="tituloModalEditarExp"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title text-capitalize" id="tituloModalEditarExp">
+            editar experiencia
+          </h5>
+          <button
+            type="button"
+            class="btn-close btn-close-white"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body d-md-flex align-items-center">
+          <div class="img-modal justify-content-center w-100 d-none d-lg-flex">
+            <img src="../../../assets/images/modales/educacion.svg" alt="" />
+          </div>
+          <form #formEditar="ngForm" class="w-100">
+            <input
+              type="hidden"
+              ngModel="{{ editarExperiencia?.idExp }}"
+              name="idExp"
+              class="form-control"
+              id="id"
+              placeholder=""
+            />
+            <div class="mb-5 contenedor-input">
+              <input
+                ngModel="{{ editarExperiencia?.empresaExp }}"
+                type="text"
+                class="form-control"
+                id="empresaExp"
+                name="empresaExp"
+                placeholder="nombre de la empresa:"
+              />
+            </div>
+            <div class="mb-5 contenedor-input">
+              <input
+                ngModel="{{ editarExperiencia?.tituloExp }}"
+                type="text"
+                class="form-control"
+                id="tituloExp"
+                name="tituloExp"
+                placeholder="titulo de la experiencia:"
+              />
+            </div>
+            <div class="mb-5 contenedor-input">
+              <input
+                ngModel="{{ editarExperiencia?.fechaIniExp }}"
+                type="number"
+                class="form-control"
+                id="fechaIniExp"
+                name="fechaIniExp"
+                placeholder="año de inicio:"
+              />
+            </div>
+            <div class="mb-5 contenedor-input">
+              <input
+                n
+                ngModel="{{ editarExperiencia?.fechaFinExp }}"
+                type="number"
+                class="form-control"
+                id="fechaFinExp"
+                name="fechaFinExp"
+                placeholder="año de finalización:"
+              />
+            </div>
+            <div class="mb-5 contenedor-input">
+              <input
+                ngModel="{{ editarExperiencia?.descripcionExp }}"
+                type="text"
+                class="form-control"
+                id="descripcionExp"
+                name="descripcionExp"
+                placeholder="descripción:"
+              />
+            </div>
+            <div class="mb-5 contenedor-input">
+              <input
+                ngModel="{{ editarExperiencia?.imgExp }}"
+                type="text"
+                class="form-control"
+                id="imgExp"
+                name="imgExp"
+                placeholder="link imagen:"
+              />
+            </div>
+            <div class="modal-footer">
+              <button
+                class="icono-crud default p-1 px-2 ms-3 text-uppercase"
+                data-bs-dismiss="modal"
+              >
+                <span class="contenido-icono"> cerrar </span>
+              </button>
+              <button
+                [disabled]="formAgregar.invalid"
+                class="icono-crud añadir p-1 px-2 ms-3 text-uppercase btn"
+                type="submit"
+                data-bs-dismiss="modal"
+                (click)="onEditarExp(formEditar.value)"
+              >
+                <span class="contenido-icono">
+                  editar
+                  <i class="fa-solid fa-pen ms-3"></i>
+                </span>
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--MODAL ELIMINAR EXP-->
+  <div
+    class="modal fade"
+    id="modal-eliminar-exp"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="tituloModalEliminarExp"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title text-capitalize" id="tituloModalEliminarExp">
+            eliminar experiencia
+          </h5>
+          <button
+            type="button"
+            class="btn-close btn-close-white"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body text-capitalize">
+          estas seguro de eliminar esta experiencia?
+        </div>
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn icono-crud default p-1 px-2 ms-3 text-uppercase"
+            data-dismiss="modal"
+          >
+            <span class="contenido-icono">cerrar</span>
+          </button>
+          <button
+            (click)="onEliminarExp(borrarExperiencia!.idExp)"
+            type="button"
+            class="btn icono-crud eliminar p-1 px-2 ms-3 text-uppercase"
+            data-bs-dismiss="modal"
+          >
+            <span class="contenido-icono"
+              >eliminar<i class="fa-solid fa-xmark ms-3"></i
+            ></span>
+          </button>
+        </div>
+      </div>
     </div>
   </div>
 </section>
