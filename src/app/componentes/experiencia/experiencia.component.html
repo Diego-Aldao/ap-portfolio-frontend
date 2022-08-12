@@ -2,8 +2,9 @@
   <header class="col-12 mb-4 d-flex align-items-center">
     <h2 class="text-capitalize"><span class="indice">01.</span> experiencia</h2>
     <button
+      data-bs-toggle="modal"
+      data-bs-target="#modal-agregar-exp"
       class="icono-crud añadir p-1 px-2 ms-3 text-uppercase"
-      (click)="onOpenModal('agregar')"
     >
       <span class="contenido-icono">
         añadir
@@ -19,6 +20,8 @@
     <!--BOTONES EDICION-->
     <div class="col-12 mb-3 d-flex justify-content-end">
       <button
+        data-bs-toggle="modal"
+        data-bs-target="#modal-editar-exp"
         class="icono-crud editar p-1 px-2 text-uppercase"
         (click)="onOpenModal('editar', experiencia)"
       >
@@ -28,6 +31,8 @@
         </span>
       </button>
       <button
+        data-bs-toggle="modal"
+        data-bs-target="#modal-eliminar-exp"
         class="icono-crud eliminar p-1 px-2 ms-3 text-uppercase"
         (click)="onOpenModal('eliminar', experiencia)"
       >
@@ -96,7 +101,7 @@
             <div class="mb-5 contenedor-input">
               <input
                 ngModel
-                type="text"
+                type="number"
                 class="form-control"
                 id="tituloExp"
                 name="tituloExp"

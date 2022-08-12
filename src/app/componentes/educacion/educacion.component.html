@@ -4,8 +4,9 @@
       <span class="indice">02.</span> educación
     </h2>
     <button
+      data-bs-toggle="modal"
+      data-bs-target="#modal-agregar-edu"
       class="icono-crud añadir p-1 px-2 ms-3 text-uppercase"
-      (click)="onOpenModal('agregar')"
     >
       <span class="contenido-icono">
         añadir
@@ -19,6 +20,8 @@
   >
     <div class="col-12 mb-3 d-flex justify-content-end">
       <button
+        data-bs-toggle="modal"
+        data-bs-target="#modal-editar-edu"
         (click)="onOpenModal('editar', educacion)"
         class="icono-crud editar p-1 px-2 text-uppercase"
       >
@@ -28,6 +31,8 @@
         </span>
       </button>
       <button
+        data-bs-toggle="modal"
+        data-bs-target="#modal-eliminar-edu"
         (click)="onOpenModal('eliminar', educacion)"
         class="icono-crud eliminar p-1 px-2 ms-3 text-uppercase"
       >

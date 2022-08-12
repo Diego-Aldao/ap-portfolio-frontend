@@ -2,6 +2,8 @@
   <header class="col-12 mb-4 d-flex align-items-center">
     <h2 class="text-capitalize"><span class="indice">04.</span> proyectos</h2>
     <button
+      data-bs-toggle="modal"
+      data-bs-target="#modal-agregar-pro"
       (click)="onOpenModal('agregar')"
       class="icono-crud añadir p-1 px-2 ms-3 text-uppercase"
     >
@@ -17,6 +19,8 @@
   >
     <div class="col-12 mb-3 d-flex justify-content-end">
       <button
+        data-bs-toggle="modal"
+        data-bs-target="#modal-editar-pro"
         (click)="onOpenModal('editar', proyecto)"
         class="icono-crud editar p-1 px-2 text-uppercase"
       >
@@ -26,6 +30,8 @@
         </span>
       </button>
       <button
+        data-bs-toggle="modal"
+        data-bs-target="#modal-eliminar-pro"
         (click)="onOpenModal('eliminar', proyecto)"
         class="icono-crud eliminar p-1 px-2 ms-3 text-uppercase"
       >
