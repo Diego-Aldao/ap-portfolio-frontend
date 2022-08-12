@@ -1,3 +1,4 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Usuario } from 'src/app/models/usuario.model';
 import { UsuarioService } from 'src/app/servicios/usuario.service';
@@ -10,6 +11,7 @@ import { UsuarioService } from 'src/app/servicios/usuario.service';
 export class HeaderComponent implements OnInit {
 
   public usuario: Usuario | undefined;
+  public editarUsuario: Usuario | undefined;
 
   constructor(public usuarioService: UsuarioService) { }
 
@@ -25,4 +27,18 @@ export class HeaderComponent implements OnInit {
     )
   }
 
+  public onOpenModal(usuario?: Usuario): void {
+    this.editarUsuario = usuario;
+  }
+
+  public onEditarPro(usuario: Usuario):void{
+    this.usuarioService.editarUsuario(usuario).subscribe({
+      next: () => {
+        this.getUsuario();
+      },
+      error: (error: HttpErrorResponse) => {
+        console.log(error.message);
+      }}
+    )
+  }
 }
