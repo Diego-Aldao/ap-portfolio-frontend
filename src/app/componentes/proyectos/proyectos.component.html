@@ -1,7 +1,10 @@
-<section class="proyectos row">
+<section class="proyectos row" id="proyecto">
   <header class="col-12 mb-4 d-flex align-items-center">
     <h2 class="text-capitalize"><span class="indice">04.</span> proyectos</h2>
-    <button class="icono-crud añadir p-1 px-2 ms-3 text-uppercase">
+    <button
+      (click)="onOpenModal('agregar')"
+      class="icono-crud añadir p-1 px-2 ms-3 text-uppercase"
+    >
       <span class="contenido-icono">
         añadir
         <i class="fa-solid fa-plus ms-3"></i>
@@ -13,13 +16,19 @@
     *ngFor="let proyecto of proyectos"
   >
     <div class="col-12 mb-3 d-flex justify-content-end">
-      <button class="icono-crud editar p-1 px-2 text-uppercase">
+      <button
+        (click)="onOpenModal('editar', proyecto)"
+        class="icono-crud editar p-1 px-2 text-uppercase"
+      >
         <span class="contenido-icono">
           editar
           <i class="fa-solid fa-pen ms-3"></i>
         </span>
       </button>
-      <button class="icono-crud eliminar p-1 px-2 ms-3 text-uppercase">
+      <button
+        (click)="onOpenModal('eliminar', proyecto)"
+        class="icono-crud eliminar p-1 px-2 ms-3 text-uppercase"
+      >
         <span class="contenido-icono">
           eliminar
           <i class="fa-solid fa-xmark ms-3"></i>
@@ -60,6 +69,356 @@
           class="text-capitalize link"
           >ver sitio<i class="fa-solid fa-square-arrow-up-right ms-2"></i
         ></a>
+      </div>
+    </div>
+  </div>
+  <!--MODAL AGREGAR PRO-->
+  <div
+    class="modal fade"
+    id="modal-agregar-pro"
+    tabindex="-1"
+    aria-labelledby="tituloModalAñadirPro"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title text-capitalize" id="tituloModalAñadirPro">
+            añadir Proyecto
+          </h5>
+          <button
+            type="button"
+            class="btn-close btn-close-white"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body d-md-flex align-items-center">
+          <div class="img-modal justify-content-center w-100 d-none d-lg-flex">
+            <img src="../../../assets/images/modales/Proyecto.svg" alt="" />
+          </div>
+          <form
+            #formAgregar="ngForm"
+            (ngSubmit)="onAgregarPro(formAgregar)"
+            class="w-100"
+          >
+            <div class="mb-5 contenedor-input">
+              <input
+                ngModel
+                type="text"
+                class="form-control"
+                id="tituloPro"
+                name="tituloPro"
+                placeholder="nombre del proyecto:"
+              />
+            </div>
+            <div class="mb-5 contenedor-input">
+              <input
+                ngModel
+                type="number"
+                class="form-control"
+                id="fechaIniPro"
+                name="fechaIniPro"
+                placeholder="año de inicio:"
+              />
+            </div>
+            <div class="mb-5 contenedor-input">
+              <input
+                ngModel
+                type="number"
+                class="form-control"
+                id="fechaFinPro"
+                name="fechaFinPro"
+                placeholder="año de finalización:"
+              />
+            </div>
+            <div class="mb-5 contenedor-input">
+              <input
+                ngModel
+                type="text"
+                class="form-control"
+                id="descripcionPro"
+                name="descripcionPro"
+                placeholder="descripción:"
+              />
+            </div>
+            <div class="mb-5 contenedor-input">
+              <input
+                ngModel
+                type="text"
+                class="form-control"
+                id="imgPro"
+                name="imgPro"
+                placeholder="link imagen:"
+              />
+            </div>
+            <div class="mb-5 contenedor-input">
+              <input
+                ngModel
+                type="text"
+                class="form-control"
+                id="linkCode"
+                name="linkCode"
+                placeholder="link código:"
+              />
+            </div>
+            <div class="mb-5 contenedor-input">
+              <input
+                ngModel
+                type="text"
+                class="form-control"
+                id="linkSitio"
+                name="linkSitio"
+                placeholder="link del sitio:"
+              />
+            </div>
+            <div class="mb-5 contenedor-input">
+              <input
+                ngModel
+                type="text"
+                class="form-control"
+                id="mainTecno"
+                name="mainTecno"
+                placeholder="tecnología principal:"
+              />
+            </div>
+            <div class="mb-5 contenedor-input">
+              <input
+                ngModel
+                type="text"
+                class="form-control"
+                id="subTecnoA"
+                name="subTecnoA"
+                placeholder="tecnología secundaria:"
+              />
+            </div>
+            <div class="mb-5 contenedor-input">
+              <input
+                ngModel
+                type="text"
+                class="form-control"
+                id="subTecnoB"
+                name="subTecnoB"
+                placeholder="tecnología secundaria:"
+              />
+            </div>
+
+            <div class="modal-footer">
+              <button
+                class="icono-crud default p-1 px-2 ms-3 text-uppercase"
+                data-bs-dismiss="modal"
+              >
+                <span class="contenido-icono">cerrar</span>
+              </button>
+              <button
+                [disabled]="formAgregar.invalid"
+                class="icono-crud añadir p-1 px-2 ms-3 text-uppercase btn"
+                type="submit"
+                data-bs-dismiss="modal"
+              >
+                <span class="contenido-icono"
+                  >agregar<i class="fa-solid fa-plus ms-3"></i>
+                </span>
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--MODAL EDITAR PRO-->
+  <div
+    class="modal fade"
+    id="modal-editar-pro"
+    tabindex="-1"
+    aria-labelledby="tituloModalEditarPro"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title text-capitalize" id="tituloModalEditarPro">
+            editar Proyecto
+          </h5>
+          <button
+            type="button"
+            class="btn-close btn-close-white"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body d-md-flex align-items-center">
+          <div class="img-modal justify-content-center w-100 d-none d-lg-flex">
+            <img src="../../../assets/images/modales/Proyecto.svg" alt="" />
+          </div>
+          <form #formEditar="ngForm" class="w-100">
+            <input
+              type="hidden"
+              ngModel="{{ editarProyecto?.idPro }}"
+              name="idPro"
+              class="form-control"
+              id="id"
+              placeholder=""
+            />
+            <div class="mb-5 contenedor-input">
+              <input
+                ngModel="{{ editarProyecto?.tituloPro }}"
+                type="text"
+                class="form-control"
+                id="tituloPro"
+                name="tituloPro"
+                placeholder="titulo de la Proyecto:"
+              />
+            </div>
+            <div class="mb-5 contenedor-input">
+              <input
+                ngModel="{{ editarProyecto?.fechaPro }}"
+                type="number"
+                class="form-control"
+                id="fechaIniPro"
+                name="fechaIniPro"
+                placeholder="año de inicio:"
+              />
+            </div>
+            <div class="mb-5 contenedor-input">
+              <input
+                ngModel="{{ editarProyecto?.descripcionPro }}"
+                type="text"
+                class="form-control"
+                id="descripcionPro"
+                name="descripcionPro"
+                placeholder="descripción:"
+              />
+            </div>
+            <div class="mb-5 contenedor-input">
+              <input
+                ngModel="{{ editarProyecto?.imgPro }}"
+                type="text"
+                class="form-control"
+                id="imgPro"
+                name="imgPro"
+                placeholder="link imagen:"
+              />
+            </div>
+            <div class="mb-5 contenedor-input">
+              <input
+                ngModel="{{ editarProyecto?.linkCode }}"
+                type="text"
+                class="form-control"
+                id="linkPro"
+                name="linkPro"
+                placeholder="link código:"
+              />
+            </div>
+            <div class="mb-5 contenedor-input">
+              <input
+                ngModel="{{ editarProyecto?.linkSitio }}"
+                type="text"
+                class="form-control"
+                id="linkSitio"
+                name="linkSitio"
+                placeholder="link sitio:"
+              />
+            </div>
+            <div class="mb-5 contenedor-input">
+              <input
+                ngModel="{{ editarProyecto?.mainTecno }}"
+                type="text"
+                class="form-control"
+                id="mainTecno"
+                name="mainTecno"
+                placeholder="tecnología principal:"
+              />
+            </div>
+            <div class="mb-5 contenedor-input">
+              <input
+                ngModel="{{ editarProyecto?.subTecnoA }}"
+                type="text"
+                class="form-control"
+                id="subTecnoA"
+                name="subTecnoA"
+                placeholder="tecnologia secundaria:"
+              />
+            </div>
+            <div class="mb-5 contenedor-input">
+              <input
+                ngModel="{{ editarProyecto?.subTecnoB }}"
+                type="text"
+                class="form-control"
+                id="subTecnoB"
+                name="subTecnoB"
+                placeholder="tecnología secundaria:"
+              />
+            </div>
+            <div class="modal-footer">
+              <button
+                class="icono-crud default p-1 px-2 ms-3 text-uppercase"
+                data-bs-dismiss="modal"
+              >
+                <span class="contenido-icono"> cerrar </span>
+              </button>
+              <button
+                [disabled]="formAgregar.invalid"
+                class="icono-crud añadir p-1 px-2 ms-3 text-uppercase btn"
+                type="submit"
+                data-bs-dismiss="modal"
+                (click)="onEditarPro(formEditar.value)"
+              >
+                <span class="contenido-icono">
+                  editar
+                  <i class="fa-solid fa-pen ms-3"></i>
+                </span>
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--MODAL ELIMINAR PRO-->
+  <div
+    class="modal fade"
+    id="modal-eliminar-pro"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="tituloModalEliminarPro"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title text-capitalize" id="tituloModalEliminarPro">
+            eliminar Proyecto
+          </h5>
+          <button
+            type="button"
+            class="btn-close btn-close-white"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body text-capitalize">
+          estas seguro de eliminar este proyecto?
+        </div>
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn icono-crud default p-1 px-2 ms-3 text-uppercase"
+            data-dismiss="modal"
+          >
+            <span class="contenido-icono">cerrar</span>
+          </button>
+          <button
+            (click)="onEliminarPro(borrarProyecto!.idPro)"
+            type="button"
+            class="btn icono-crud eliminar p-1 px-2 ms-3 text-uppercase"
+            data-bs-dismiss="modal"
+          >
+            <span class="contenido-icono"
+              >eliminar<i class="fa-solid fa-xmark ms-3"></i
+            ></span>
+          </button>
+        </div>
       </div>
     </div>
   </div>
