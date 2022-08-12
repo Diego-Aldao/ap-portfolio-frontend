@@ -1,7 +1,10 @@
-<section class="habilidades row mb-5">
+<section class="habilidades row mb-5" id="habilidad">
   <header class="col-12 mb-4 d-flex align-items-center">
     <h2 class="text-capitalize"><span class="indice">03.</span> habilidades</h2>
-    <button class="icono-crud añadir p-1 px-2 ms-3 text-uppercase">
+    <button
+      (click)="onOpenModal('agregar')"
+      class="icono-crud añadir p-1 px-2 ms-3 text-uppercase"
+    >
       <span class="contenido-icono">
         añadir
         <i class="fa-solid fa-plus ms-3"></i>
@@ -13,13 +16,19 @@
     *ngFor="let habilidad of habilidades"
   >
     <div class="col-12 mb-3 d-flex justify-content-end">
-      <button class="icono-crud editar p-1 px-2 text-uppercase">
+      <button
+        (click)="onOpenModal('editar', habilidad)"
+        class="icono-crud editar p-1 px-2 text-uppercase"
+      >
         <span class="contenido-icono">
           editar
           <i class="fa-solid fa-pen ms-3"></i>
         </span>
       </button>
-      <button class="icono-crud eliminar p-1 px-2 ms-3 text-uppercase">
+      <button
+        (click)="onOpenModal('eliminar', habilidad)"
+        class="icono-crud eliminar p-1 px-2 ms-3 text-uppercase"
+      >
         <span class="contenido-icono">
           eliminar
           <i class="fa-solid fa-xmark ms-3"></i>
@@ -34,6 +43,205 @@
           class="linea-progreso"
           [ngStyle]="{ width: habilidad.porcentajeHab + '%' }"
         ></div>
+      </div>
+    </div>
+  </div>
+  <!--MODAL AGREGAR HAB-->
+  <div
+    class="modal fade"
+    id="modal-agregar-hab"
+    tabindex="-1"
+    aria-labelledby="tituloModalAñadirHab"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title text-capitalize" id="tituloModalAñadirHab">
+            añadir habilidad
+          </h5>
+          <button
+            type="button"
+            class="btn-close btn-close-white"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body d-md-flex align-items-center">
+          <div class="img-modal justify-content-center w-100 d-none d-lg-flex">
+            <img src="../../../assets/images/modales/educacion.svg" alt="" />
+          </div>
+          <form
+            #formAgregar="ngForm"
+            (ngSubmit)="onAgregarHab(formAgregar)"
+            class="w-100"
+          >
+            <div class="mb-5 contenedor-input">
+              <input
+                ngModel
+                type="text"
+                class="form-control"
+                id="nombreHab"
+                name="nombreHab"
+                placeholder="nombre:"
+              />
+            </div>
+            <div class="mb-5 contenedor-input">
+              <input
+                ngModel
+                type="number"
+                class="form-control"
+                id="porcentajeHab"
+                name="porcentajeHab"
+                placeholder="porcentaje de la habilidad:"
+              />
+            </div>
+            <div class="modal-footer">
+              <button
+                class="icono-crud default p-1 px-2 ms-3 text-uppercase"
+                data-bs-dismiss="modal"
+              >
+                <span class="contenido-icono">cerrar</span>
+              </button>
+              <button
+                [disabled]="formAgregar.invalid"
+                class="icono-crud añadir p-1 px-2 ms-3 text-uppercase btn"
+                type="submit"
+                data-bs-dismiss="modal"
+              >
+                <span class="contenido-icono"
+                  >agregar<i class="fa-solid fa-plus ms-3"></i>
+                </span>
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--MODAL EDITAR HAB-->
+  <div
+    class="modal fade"
+    id="modal-editar-hab"
+    tabindex="-1"
+    aria-labelledby="tituloModalEditarHab"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title text-capitalize" id="tituloModalEditarHab">
+            editar habilidad
+          </h5>
+          <button
+            type="button"
+            class="btn-close btn-close-white"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body d-md-flex align-items-center">
+          <div class="img-modal justify-content-center w-100 d-none d-lg-flex">
+            <img src="../../../assets/images/modales/educacion.svg" alt="" />
+          </div>
+          <form #formEditar="ngForm" class="w-100">
+            <input
+              type="hidden"
+              ngModel="{{ editarHabilidad?.idHab }}"
+              name="idHab"
+              class="form-control"
+              id="id"
+              placeholder=""
+            />
+            <div class="mb-5 contenedor-input">
+              <input
+                ngModel="{{ editarHabilidad?.nombreHab }}"
+                type="text"
+                class="form-control"
+                id="nombreHab"
+                name="nombreHab"
+                placeholder="habilidad:"
+              />
+            </div>
+            <div class="mb-5 contenedor-input">
+              <input
+                ngModel="{{ editarHabilidad?.porcentajeHab }}"
+                type="number"
+                class="form-control"
+                id="porcentajeHab"
+                name="porcentajeHab"
+                placeholder="porcentaje de la habilidad:"
+              />
+            </div>
+            <div class="modal-footer">
+              <button
+                class="icono-crud default p-1 px-2 ms-3 text-uppercase"
+                data-bs-dismiss="modal"
+              >
+                <span class="contenido-icono"> cerrar </span>
+              </button>
+              <button
+                [disabled]="formAgregar.invalid"
+                class="icono-crud añadir p-1 px-2 ms-3 text-uppercase btn"
+                type="submit"
+                data-bs-dismiss="modal"
+                (click)="onEditarHab(formEditar.value)"
+              >
+                <span class="contenido-icono">
+                  editar
+                  <i class="fa-solid fa-pen ms-3"></i>
+                </span>
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--MODAL ELIMINAR HAB-->
+  <div
+    class="modal fade"
+    id="modal-eliminar-hab"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="tituloModalEliminarHab"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title text-capitalize" id="tituloModalEliminarHab">
+            eliminar habilidad
+          </h5>
+          <button
+            type="button"
+            class="btn-close btn-close-white"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body text-capitalize">
+          estas seguro de eliminar esta Habilidad?
+        </div>
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn icono-crud default p-1 px-2 ms-3 text-uppercase"
+            data-dismiss="modal"
+          >
+            <span class="contenido-icono">cerrar</span>
+          </button>
+          <button
+            (click)="onEliminarHab(borrarHabilidad!.idHab)"
+            type="button"
+            class="btn icono-crud eliminar p-1 px-2 ms-3 text-uppercase"
+            data-bs-dismiss="modal"
+          >
+            <span class="contenido-icono"
+              >eliminar<i class="fa-solid fa-xmark ms-3"></i
+            ></span>
+          </button>
+        </div>
       </div>
     </div>
   </div>
