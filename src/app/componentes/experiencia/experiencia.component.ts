@@ -53,7 +53,6 @@ export class ExperienciaComponent implements OnInit {
   public onAgregarExp(formAgregar: NgForm):void{
     this.experienciaService.añadirExperiencia(formAgregar.value).subscribe(
       (response: Experiencia) =>{
-        console.log(response);
         this.getExperiencias();
         formAgregar.reset();
       },
@@ -67,7 +66,6 @@ export class ExperienciaComponent implements OnInit {
   public onEditarExp(experiencia: Experiencia):void{
     this.experienciaService.editarExperiencia(experiencia).subscribe(
       (response: Experiencia) =>{
-        console.log(response);
         this.getExperiencias();
       },
       (error: HttpErrorResponse) =>{
@@ -79,7 +77,6 @@ export class ExperienciaComponent implements OnInit {
   public onEliminarExp(experienciaId: number):void{
     this.experienciaService.eliminarExperiencia(experienciaId).subscribe(
       (response: void) =>{
-        console.log(response);
         this.getExperiencias();
       },
       (error: HttpErrorResponse) =>{
