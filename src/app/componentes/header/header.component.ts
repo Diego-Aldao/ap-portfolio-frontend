@@ -1,6 +1,7 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Usuario } from 'src/app/models/usuario.model';
+import { AutenticacionService } from 'src/app/servicios/autenticacion.service';
 import { UsuarioService } from 'src/app/servicios/usuario.service';
 
 @Component({
@@ -13,11 +14,13 @@ export class HeaderComponent implements OnInit {
   public usuario: Usuario | undefined;
   public editarUsuario: Usuario | undefined;
 
-  constructor(public usuarioService: UsuarioService) { }
+  constructor(public usuarioService: UsuarioService, private autenticacionService:AutenticacionService) { }
 
   ngOnInit(): void {
     this.getUsuario();
   }
+
+  isLogged = this.autenticacionService.UsuarioLogueado;
 
   public getUsuario():void{
     this.usuarioService.getUsuario().subscribe(

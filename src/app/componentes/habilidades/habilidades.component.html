@@ -2,6 +2,7 @@
   <header class="col-12 mb-4 d-flex align-items-center">
     <h2 class="text-capitalize"><span class="indice">03.</span> habilidades</h2>
     <button
+      *ngIf="isLogged"
       data-bs-toggle="modal"
       data-bs-target="#modal-agregar-hab"
       class="icono-crud añadir p-1 px-2 ms-3 text-uppercase"
@@ -18,6 +19,7 @@
   >
     <div class="col-12 mb-3 d-flex justify-content-end">
       <button
+        *ngIf="isLogged"
         data-bs-toggle="modal"
         data-bs-target="#modal-editar-hab"
         (click)="onOpenModal('editar', habilidad)"
@@ -29,6 +31,7 @@
         </span>
       </button>
       <button
+        *ngIf="isLogged"
         data-bs-toggle="modal"
         data-bs-target="#modal-eliminar-hab"
         (click)="onOpenModal('eliminar', habilidad)"

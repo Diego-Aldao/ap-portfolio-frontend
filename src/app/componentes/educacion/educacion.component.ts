@@ -2,6 +2,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Educacion } from 'src/app/models/educacion.model';
+import { AutenticacionService } from 'src/app/servicios/autenticacion.service';
 import { EducacionService } from 'src/app/servicios/educacion.service';
 
 @Component({
@@ -15,11 +16,13 @@ export class EducacionComponent implements OnInit {
   public editarEducacion: Educacion | undefined;
   public borrarEducacion: Educacion | undefined;
 
-  constructor(private educacionService:EducacionService) { }
+  constructor(private educacionService:EducacionService, private autenticacionService: AutenticacionService) { }
 
   ngOnInit(): void {
     this.getEducaciones();
   }
+
+  isLogged = this.autenticacionService.UsuarioLogueado;
 
   public getEducaciones():void{
     this.educacionService.getEducacion().subscribe(

@@ -2,6 +2,7 @@
   <header class="col-12 mb-4 d-flex align-items-center">
     <h2 class="text-capitalize"><span class="indice">04.</span> proyectos</h2>
     <button
+      *ngIf="isLogged"
       data-bs-toggle="modal"
       data-bs-target="#modal-agregar-pro"
       (click)="onOpenModal('agregar')"
@@ -19,6 +20,7 @@
   >
     <div class="col-12 mb-3 d-flex justify-content-end">
       <button
+        *ngIf="isLogged"
         data-bs-toggle="modal"
         data-bs-target="#modal-editar-pro"
         (click)="onOpenModal('editar', proyecto)"
@@ -30,6 +32,7 @@
         </span>
       </button>
       <button
+        *ngIf="isLogged"
         data-bs-toggle="modal"
         data-bs-target="#modal-eliminar-pro"
         (click)="onOpenModal('eliminar', proyecto)"

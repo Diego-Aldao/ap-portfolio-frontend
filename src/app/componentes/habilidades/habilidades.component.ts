@@ -2,6 +2,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Habilidad } from 'src/app/models/habilidad.model';
+import { AutenticacionService } from 'src/app/servicios/autenticacion.service';
 import { HabilidadService } from 'src/app/servicios/habilidad.service';
 
 @Component({
@@ -15,11 +16,13 @@ export class HabilidadesComponent implements OnInit {
   public editarHabilidad: Habilidad | undefined;
   public borrarHabilidad: Habilidad | undefined;
 
-  constructor(private habilidadService:HabilidadService) { }
+  constructor(private habilidadService:HabilidadService, private autenticacionService:AutenticacionService) { }
 
   ngOnInit(): void {
     this.getHabilidades();
   }
+
+  isLogged = this.autenticacionService.UsuarioLogueado;
 
   public getHabilidades():void{
     this.habilidadService.getHabilidad().subscribe(

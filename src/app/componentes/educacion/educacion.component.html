@@ -4,6 +4,7 @@
       <span class="indice">02.</span> educación
     </h2>
     <button
+      *ngIf="isLogged"
       data-bs-toggle="modal"
       data-bs-target="#modal-agregar-edu"
       class="icono-crud añadir p-1 px-2 ms-3 text-uppercase"
@@ -20,6 +21,7 @@
   >
     <div class="col-12 mb-3 d-flex justify-content-end">
       <button
+        *ngIf="isLogged"
         data-bs-toggle="modal"
         data-bs-target="#modal-editar-edu"
         (click)="onOpenModal('editar', educacion)"
@@ -31,6 +33,7 @@
         </span>
       </button>
       <button
+        *ngIf="isLogged"
         data-bs-toggle="modal"
         data-bs-target="#modal-eliminar-edu"
         (click)="onOpenModal('eliminar', educacion)"
