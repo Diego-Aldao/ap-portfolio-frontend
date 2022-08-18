@@ -28,50 +28,61 @@
           [formGroup]="form"
           class="w-100 d-flex flex-column align-items-center px-2"
         >
-          <div *ngIf="Email?.errors && Email?.touched" class="w-100">
-            <p *ngIf="Email?.hasError('required')" class="text-danger">
-              requerido
-            </p>
-            <p *ngIf="Email?.hasError('email')" class="text-danger">ingresar</p>
+          <div class="contenedor-input col-12">
+            <div class="input-login col-12 mt-4 d-flex align-items-center">
+              <i class="fa-solid fa-user me-3"></i>
+              <input
+                type="email"
+                formControlName="email"
+                name="usuario"
+                id="usuario"
+                placeholder="email"
+              />
+            </div>
+            <div *ngIf="Email?.errors && Email?.touched" class="col-12">
+              <p
+                *ngIf="Email?.hasError('required') && Email?.touched"
+                class="text-capitalize mt-2"
+              >
+                requerido
+              </p>
+              <p *ngIf="Email?.hasError('email')" class="text-capitalize mt-2">
+                email invalido
+              </p>
+            </div>
           </div>
-          <div class="contenedor-input col-12 mt-4 d-flex align-items-center">
-            <i class="fa-solid fa-user me-3"></i>
-            <input
-              type="email"
-              formControlName="email"
-              name="usuario"
-              id="usuario"
-              placeholder="email"
-            />
+
+          <div class="contenedor-input col-12">
+            <div class="input-login col-12 mt-2 d-flex align-items-center">
+              <i class="fa-solid fa-lock me-3"></i>
+              <input
+                type="password"
+                formControlName="password"
+                name="contraseña"
+                id="contraseña"
+                placeholder="contraseña"
+              />
+            </div>
+            <div *ngIf="Password?.errors && Password?.touched" class="w-100">
+              <p
+                *ngIf="Password?.hasError('required')"
+                class="text-capitalize mt-2"
+              >
+                requerido
+              </p>
+              <p
+                *ngIf="Password?.errors?.['minlength']"
+                class="text-capitalize mt-2"
+              >
+                la contraseña debe ser de 5 o mas caracteres
+              </p>
+            </div>
           </div>
-          <div *ngIf="Password?.errors && Password?.touched" class="w-100">
-            <p *ngIf="Password?.hasError('required')" class="text-danger">
-              requerido
-            </p>
-            <p *ngIf="Password?.errors?.['minlength']" class="text-danger">
-              la contraseña debe ser de 5 o mas caracteres
-            </p>
-          </div>
-          <div
-            class="contenedor-input col-12 mt-3 mb-5 d-flex align-items-center"
-          >
-            <i class="fa-solid fa-lock me-3"></i>
-            <input
-              type="password"
-              formControlName="password"
-              name="contraseña"
-              id="contraseña"
-              placeholder="contraseña"
-            />
-          </div>
-          <button type="submit" class="btn boton text-uppercase mb-5">
+
+          <button type="submit" class="btn boton text-uppercase mt-2">
             ingresar
           </button>
         </form>
-        <p class="registro">
-          no tienes cuenta?
-          <a class="link link-registro" href="">crear cuenta</a>
-        </p>
       </div>
     </div>
   </div>
