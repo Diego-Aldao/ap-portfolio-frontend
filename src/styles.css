@@ -2,14 +2,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Mulish:wght@300;400&display=swap');
 
 :root {
-    --color-principal: #fd2ea3;
-    --color-secundario: #05eeff;
+    --color-principal: #45c1ff;
+    --color-secundario: #d65c8f;
     --color-textos: #8892b0;
     --color-titulos: #ccd6f6;
-    --color-negro: #0a192f;
+    --color-negro: #202427;
     --fuente-principal: 'Monterrat', sans-serif;
     --fuente-secundaria: 'Mulish', sans-serif;
-    --color-negro-secundario: #1b2a44;
+    --color-negro-secundario: #2e2e3a;
+    --color-eliminar: #f74f4f;
+    --color-editar: #f0bd57;
+    --color-aceptar: #57d6be;
 }
 
 
@@ -50,6 +53,10 @@ p:last-of-type {
     margin: 0;
 }
 
+textarea {
+    resize: none !important;
+}
+
 .link {
     text-decoration: none;
     text-decoration-skip-ink: auto;
@@ -75,6 +82,7 @@ svg {
     max-width: 100%;
     height: 100%;
     vertical-align: middle;
+    object-fit: contain;
 }
 
 html body {
@@ -107,9 +115,9 @@ html .boton:hover {
 }
 
 .logo-argprog {
-    background: #8892b0;
+    background: var(--color-textos);
     padding: 4px 8px;
-    color: var(--color-secundario);
+    color: var(--color-principal);
     border-radius: 5px;
 }
 
@@ -173,15 +181,15 @@ html .icono-crud {
 }
 
 .añadir {
-    box-shadow: 3px 3px rgb(31, 206, 84);
+    box-shadow: 3px 3px var(--color-aceptar);
 }
 
 .editar {
-    box-shadow: 3px 3px rgb(203, 206, 31);
+    box-shadow: 3px 3px var(--color-editar);
 }
 
 .eliminar {
-    box-shadow: 3px 3px rgb(206, 31, 31);
+    box-shadow: 3px 3px var(--color-eliminar);
 }
 
 .default {
@@ -189,15 +197,15 @@ html .icono-crud {
 }
 
 .añadir::after {
-    background: rgb(31, 206, 84);
+    background: var(--color-aceptar);
 }
 
 .editar::after {
-    background: rgb(203, 206, 31);
+    background: var(--color-editar);
 }
 
 .eliminar::after {
-    background: rgb(206, 31, 31);
+    background: var(--color-eliminar);
 }
 
 .default::after {
@@ -221,7 +229,7 @@ html .icono-crud {
 tengo escribir al parent tambien*/
 
 html .modal-content {
-    background: var(--color-negro-secundario);
+    background: var(--color-negro);
     color: var(--color-titulos);
     position: relative;
 }
@@ -240,25 +248,15 @@ html .modal-content {
 }
 
 .img-modal {
-    max-height: 250px;
-    width: 50%;
-}
-
-.img-modal img {
-    width: 250px;
-    height: 100%;
-    object-fit: cover;
+    width: 100%;
+    height: 250px;
 }
 
 .modal-content .form-control {
     border: none;
     outline: none;
-    background: var(--color-negro);
+    background: var(--color-negro-secundario);
     color: var(--color-titulos);
-}
-
-.contenedor-input {
-    border-bottom: 1px solid var(--color-principal);
 }
 
 .modal-content .form-control::placeholder {
