@@ -10,7 +10,7 @@
       class="icono-crud añadir p-1 px-2 ms-3 text-uppercase"
     >
       <span class="contenido-icono">
-        añadir
+        agregar
         <i class="fa-solid fa-plus ms-3"></i>
       </span>
     </button>
@@ -79,7 +79,7 @@
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title text-capitalize" id="tituloModalAñadirEdu">
-            añadir Educación
+            agregar educación
           </h5>
           <button
             type="button"
@@ -88,16 +88,20 @@
             aria-label="Close"
           ></button>
         </div>
-        <div class="modal-body d-md-flex align-items-center">
-          <div class="img-modal justify-content-center w-100 d-none d-lg-flex">
+        <div
+          class="modal-body container d-flex justify-content-center flex-lg-column"
+        >
+          <div
+            class="img-modal d-none d-lg-flex justify-content-center w-100 mb-4"
+          >
             <img src="../../../assets/images/modales/educacion.svg" alt="" />
           </div>
           <form
             #formAgregar="ngForm"
             (ngSubmit)="onAgregarEdu(formAgregar)"
-            class="w-100"
+            class="w-100 row"
           >
-            <div class="mb-5 contenedor-input">
+            <div class="mb-5 contenedor-input col-lg-6">
               <input
                 ngModel
                 type="text"
@@ -107,7 +111,7 @@
                 placeholder="nombre de la institucion:"
               />
             </div>
-            <div class="mb-5 contenedor-input">
+            <div class="mb-5 contenedor-input col-lg-6">
               <input
                 ngModel
                 type="text"
@@ -117,7 +121,7 @@
                 placeholder="titulo de la educacion:"
               />
             </div>
-            <div class="mb-5 contenedor-input">
+            <div class="mb-5 contenedor-input col-lg-6">
               <input
                 ngModel
                 type="number"
@@ -127,7 +131,7 @@
                 placeholder="año de inicio:"
               />
             </div>
-            <div class="mb-5 contenedor-input">
+            <div class="mb-5 contenedor-input col-lg-6">
               <input
                 ngModel
                 type="number"
@@ -147,7 +151,7 @@
                 placeholder="descripción:"
               />
             </div>
-            <div class="mb-5 contenedor-input">
+            <div class="mb-5 contenedor-input col-lg-6">
               <input
                 ngModel
                 type="text"
@@ -157,7 +161,7 @@
                 placeholder="link educacion:"
               />
             </div>
-            <div class="mb-5 contenedor-input">
+            <div class="mb-5 contenedor-input col-lg-6">
               <input
                 ngModel
                 type="text"
@@ -190,7 +194,7 @@
       </div>
     </div>
   </div>
-  <!--MODAL EDITAR EXP-->
+  <!--MODAL EDITAR EDU-->
   <div
     class="modal fade"
     id="modal-editar-edu"
@@ -211,11 +215,15 @@
             aria-label="Close"
           ></button>
         </div>
-        <div class="modal-body d-md-flex align-items-center">
-          <div class="img-modal justify-content-center w-100 d-none d-lg-flex">
+        <div
+          class="modal-body container d-flex justify-content-center flex-lg-column"
+        >
+          <div
+            class="img-modal justify-content-center w-100 d-none d-lg-flex mb-5"
+          >
             <img src="../../../assets/images/modales/educacion.svg" alt="" />
           </div>
-          <form #formEditar="ngForm" class="w-100">
+          <form #formEditar="ngForm" class="w-100 row">
             <input
               type="hidden"
               ngModel="{{ editarEducacion?.idEdu }}"
@@ -224,7 +232,7 @@
               id="id"
               placeholder=""
             />
-            <div class="mb-5 contenedor-input">
+            <div class="mb-5 contenedor-input col-lg-6">
               <input
                 ngModel="{{ editarEducacion?.institucionEdu }}"
                 type="text"
@@ -234,7 +242,7 @@
                 placeholder="nombre de la institucion:"
               />
             </div>
-            <div class="mb-5 contenedor-input">
+            <div class="mb-5 contenedor-input col-lg-6">
               <input
                 ngModel="{{ editarEducacion?.tituloEdu }}"
                 type="text"
@@ -244,7 +252,7 @@
                 placeholder="titulo de la Educacion:"
               />
             </div>
-            <div class="mb-5 contenedor-input">
+            <div class="mb-5 contenedor-input col-lg-6">
               <input
                 ngModel="{{ editarEducacion?.fechaIniEdu }}"
                 type="number"
@@ -254,9 +262,8 @@
                 placeholder="año de inicio:"
               />
             </div>
-            <div class="mb-5 contenedor-input">
+            <div class="mb-5 contenedor-input col-lg-6">
               <input
-                n
                 ngModel="{{ editarEducacion?.fechaFinEdu }}"
                 type="number"
                 class="form-control"
@@ -275,7 +282,7 @@
                 placeholder="descripción:"
               />
             </div>
-            <div class="mb-5 contenedor-input">
+            <div class="mb-5 contenedor-input col-lg-6">
               <input
                 ngModel="{{ editarEducacion?.linkEdu }}"
                 type="text"
@@ -285,7 +292,7 @@
                 placeholder="link educacion:"
               />
             </div>
-            <div class="mb-5 contenedor-input">
+            <div class="mb-5 contenedor-input col-lg-6">
               <input
                 ngModel="{{ editarEducacion?.imgEdu }}"
                 type="text"
@@ -304,7 +311,7 @@
               </button>
               <button
                 [disabled]="formAgregar.invalid"
-                class="icono-crud añadir p-1 px-2 ms-3 text-uppercase btn"
+                class="icono-crud editar p-1 px-2 ms-3 text-uppercase btn"
                 type="submit"
                 data-bs-dismiss="modal"
                 (click)="onEditarEdu(formEditar.value)"
@@ -320,7 +327,7 @@
       </div>
     </div>
   </div>
-  <!--MODAL ELIMINAR Edu-->
+  <!--MODAL ELIMINAR EDU-->
   <div
     class="modal fade"
     id="modal-eliminar-edu"

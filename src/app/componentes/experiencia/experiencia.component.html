@@ -8,7 +8,7 @@
       class="icono-crud añadir p-1 px-2 ms-3 text-uppercase"
     >
       <span class="contenido-icono">
-        añadir
+        agregar
         <i class="fa-solid fa-plus ms-3"></i>
       </span>
     </button>
@@ -73,7 +73,7 @@
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title text-capitalize" id="tituloModalAñadirExp">
-            añadir experiencia
+            agregar experiencia
           </h5>
           <button
             type="button"
@@ -82,16 +82,23 @@
             aria-label="Close"
           ></button>
         </div>
-        <div class="modal-body d-md-flex align-items-center">
-          <div class="img-modal justify-content-center w-100 d-none d-lg-flex">
-            <img src="../../../assets/images/modales/educacion.svg" alt="" />
+        <div
+          class="modal-body container d-flex justify-content-center flex-lg-column"
+        >
+          <div
+            class="img-modal d-none d-lg-flex justify-content-center w-100 mb-4"
+          >
+            <img
+              src="../../../assets/images/modales/experiencia.svg"
+              alt="ilustracion experiencia"
+            />
           </div>
           <form
             #formAgregar="ngForm"
             (ngSubmit)="onAgregarExp(formAgregar)"
-            class="w-100"
+            class="w-100 row"
           >
-            <div class="mb-5 contenedor-input">
+            <div class="mb-5 contenedor-input col-lg-6">
               <input
                 ngModel
                 type="text"
@@ -101,7 +108,7 @@
                 placeholder="nombre de la empresa:"
               />
             </div>
-            <div class="mb-5 contenedor-input">
+            <div class="mb-5 contenedor-input col-lg-6">
               <input
                 ngModel
                 type="text"
@@ -111,7 +118,7 @@
                 placeholder="titulo de la experiencia:"
               />
             </div>
-            <div class="mb-5 contenedor-input">
+            <div class="mb-5 contenedor-input col-lg-6">
               <input
                 ngModel
                 type="number"
@@ -121,7 +128,7 @@
                 placeholder="año de inicio:"
               />
             </div>
-            <div class="mb-5 contenedor-input">
+            <div class="mb-5 contenedor-input col-lg-6">
               <input
                 ngModel
                 type="number"
@@ -195,11 +202,15 @@
             aria-label="Close"
           ></button>
         </div>
-        <div class="modal-body d-md-flex align-items-center">
-          <div class="img-modal justify-content-center w-100 d-none d-lg-flex">
-            <img src="../../../assets/images/modales/educacion.svg" alt="" />
+        <div
+          class="modal-body container d-flex justify-content-center flex-lg-column"
+        >
+          <div
+            class="img-modal d-none d-lg-flex justify-content-center w-100 mb-4"
+          >
+            <img src="../../../assets/images/modales/experiencia.svg" alt="" />
           </div>
-          <form #formEditar="ngForm" class="w-100">
+          <form #formEditar="ngForm" class="w-100 row">
             <input
               type="hidden"
               ngModel="{{ editarExperiencia?.idExp }}"
@@ -208,7 +219,7 @@
               id="id"
               placeholder=""
             />
-            <div class="mb-5 contenedor-input">
+            <div class="mb-5 contenedor-input col-lg-6">
               <input
                 ngModel="{{ editarExperiencia?.empresaExp }}"
                 type="text"
@@ -218,7 +229,7 @@
                 placeholder="nombre de la empresa:"
               />
             </div>
-            <div class="mb-5 contenedor-input">
+            <div class="mb-5 contenedor-input col-lg-6">
               <input
                 ngModel="{{ editarExperiencia?.tituloExp }}"
                 type="text"
@@ -228,7 +239,7 @@
                 placeholder="titulo de la experiencia:"
               />
             </div>
-            <div class="mb-5 contenedor-input">
+            <div class="mb-5 contenedor-input col-lg-6">
               <input
                 ngModel="{{ editarExperiencia?.fechaIniExp }}"
                 type="number"
@@ -238,7 +249,7 @@
                 placeholder="año de inicio:"
               />
             </div>
-            <div class="mb-5 contenedor-input">
+            <div class="mb-5 contenedor-input col-lg-6">
               <input
                 n
                 ngModel="{{ editarExperiencia?.fechaFinExp }}"
@@ -278,7 +289,7 @@
               </button>
               <button
                 [disabled]="formAgregar.invalid"
-                class="icono-crud añadir p-1 px-2 ms-3 text-uppercase btn"
+                class="icono-crud editar p-1 px-2 ms-3 text-uppercase btn"
                 type="submit"
                 data-bs-dismiss="modal"
                 (click)="onEditarExp(formEditar.value)"
