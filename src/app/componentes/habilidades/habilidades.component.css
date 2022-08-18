@@ -1,6 +1,6 @@
 /*HABILIDADES*/
 
-.info-habilidades span {
+.contenido span {
     min-width: 5px;
     height: 5px;
     background: var(--color-principal);
@@ -18,4 +18,8 @@
 .linea-progreso {
     height: 100%;
     background: var(--color-principal);
+}
+
+.descripcion span {
+    color: var(--color-principal);
 }

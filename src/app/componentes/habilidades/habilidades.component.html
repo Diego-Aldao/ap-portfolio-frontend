@@ -43,15 +43,21 @@
         </span>
       </button>
     </div>
-    <div class="info-habilidades d-flex align-items-center">
-      <span></span>
-      <p class="text-uppercase ms-3">{{ habilidad.nombreHab }}</p>
-      <div class="contenedor-linea ms-5">
-        <div
-          class="linea-progreso"
-          [ngStyle]="{ width: habilidad.porcentajeHab + '%' }"
-        ></div>
+    <div class="info-habilidades">
+      <div class="contenido d-flex align-items-center mb-3">
+        <span></span>
+        <p class="text-uppercase ms-3">{{ habilidad.nombreHab }}</p>
+        <div class="contenedor-linea ms-5">
+          <div
+            class="linea-progreso"
+            [ngStyle]="{ width: habilidad.porcentajeHab + '%' }"
+          ></div>
+        </div>
       </div>
+      <p class="descripcion">
+        <span class="text-capitalize">conocimientos sobre:</span>
+        {{ habilidad.descripcionHab }}
+      </p>
     </div>
   </div>
   <!--MODAL AGREGAR HAB-->
@@ -106,6 +112,16 @@
                 id="porcentajeHab"
                 name="porcentajeHab"
                 placeholder="porcentaje de la habilidad:"
+              />
+            </div>
+            <div class="mb-5 contenedor-input">
+              <input
+                ngModel
+                type="text"
+                class="form-control"
+                id="descripcionHab"
+                name="descripcionHab"
+                placeholder="descripcion:"
               />
             </div>
             <div class="modal-footer">
@@ -187,6 +203,16 @@
                 id="porcentajeHab"
                 name="porcentajeHab"
                 placeholder="porcentaje de la habilidad:"
+              />
+            </div>
+            <div class="mb-5 contenedor-input">
+              <input
+                ngModel
+                type="text"
+                class="form-control"
+                id="descripcionHab"
+                name="descripcionHab"
+                placeholder="descripcion:"
               />
             </div>
             <div class="modal-footer">
