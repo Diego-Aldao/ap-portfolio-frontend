@@ -12,16 +12,24 @@ import { ExperienciaService } from 'src/app/servicios/experiencia.service';
 })
 export class ExperienciaComponent implements OnInit {
 
+  isLogged= false;
+
   public experiencias:Experiencia[]=[];
   public editarExperiencia: Experiencia | undefined;
   public borrarExperiencia: Experiencia | undefined;
 
-  constructor(private experienciaService:ExperienciaService, private autenticacionService:AutenticacionService) { }
+  constructor(private experienciaService:ExperienciaService) { }
 
   ngOnInit(): void {
+    if(this.isLogueado?.length === undefined){
+      this.isLogged = false;
+    } else{
+      this.isLogged = true
+    }
     this.getExperiencias();
   }
-  isLogged = this.autenticacionService.UsuarioLogueado;
+
+  isLogueado = sessionStorage.getItem("currentUser");
 
   public getExperiencias():void{
     this.experienciaService.getExperiencia().subscribe(

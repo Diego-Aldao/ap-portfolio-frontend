@@ -11,16 +11,24 @@ import { UsuarioService } from 'src/app/servicios/usuario.service';
 })
 export class HeaderComponent implements OnInit {
 
+  isLogged= false;
+
   public usuario: Usuario | undefined;
   public editarUsuario: Usuario | undefined;
 
-  constructor(public usuarioService: UsuarioService, private autenticacionService:AutenticacionService) { }
+  constructor(public usuarioService: UsuarioService) { }
+ 
 
   ngOnInit(): void {
+    if(this.isLogueado?.length === undefined){
+      this.isLogged = false;
+    } else{
+      this.isLogged = true
+    }
     this.getUsuario();
   }
 
-  isLogged = this.autenticacionService.UsuarioLogueado;
+  isLogueado = sessionStorage.getItem("currentUser");
 
   public getUsuario():void{
     this.usuarioService.getUsuario().subscribe(

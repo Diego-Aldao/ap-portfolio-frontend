@@ -8,14 +8,21 @@ import { AutenticacionService } from 'src/app/servicios/autenticacion.service';
   styleUrls: ['./navegacion.component.css']
 })
 export class NavegacionComponent implements OnInit {  
+
+  isLogged= false;
   
-  constructor(private ruta:Router, private autenticacionService:AutenticacionService) { 
+  constructor(private ruta:Router) { 
   }
   
   ngOnInit(): void {
-  }
-  
-  isLogged = this.autenticacionService.UsuarioLogueado;
+    if(this.isLogueado?.length === undefined){
+      this.isLogged = false;
+    } else{
+      this.isLogged = true
+    }
+  }  
+
+  isLogueado = sessionStorage.getItem("currentUser");
   
   login(): void{
     this.ruta.navigate(["/login"])

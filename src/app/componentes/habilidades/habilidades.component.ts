@@ -12,17 +12,24 @@ import { HabilidadService } from 'src/app/servicios/habilidad.service';
 })
 export class HabilidadesComponent implements OnInit {
 
+  isLogged= false;
+
   public habilidades:Habilidad[]=[];
   public editarHabilidad: Habilidad | undefined;
   public borrarHabilidad: Habilidad | undefined;
 
-  constructor(private habilidadService:HabilidadService, private autenticacionService:AutenticacionService) { }
+  constructor(private habilidadService:HabilidadService) { }
 
   ngOnInit(): void {
+    if(this.isLogueado?.length === undefined){
+      this.isLogged = false;
+    } else{
+      this.isLogged = true
+    }
     this.getHabilidades();
   }
 
-  isLogged = this.autenticacionService.UsuarioLogueado;
+  isLogueado = sessionStorage.getItem("currentUser");
 
   public getHabilidades():void{
     this.habilidadService.getHabilidad().subscribe(

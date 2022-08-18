@@ -12,17 +12,24 @@ import { EducacionService } from 'src/app/servicios/educacion.service';
 })
 export class EducacionComponent implements OnInit {
 
+  isLogged= false;
+
   public educaciones:Educacion[]=[];
   public editarEducacion: Educacion | undefined;
   public borrarEducacion: Educacion | undefined;
 
-  constructor(private educacionService:EducacionService, private autenticacionService: AutenticacionService) { }
+  constructor(private educacionService:EducacionService) { }
 
   ngOnInit(): void {
+    if(this.isLogueado?.length === undefined){
+      this.isLogged = false;
+    } else{
+      this.isLogged = true
+    }
     this.getEducaciones();
   }
 
-  isLogged = this.autenticacionService.UsuarioLogueado;
+  isLogueado = sessionStorage.getItem("currentUser");
 
   public getEducaciones():void{
     this.educacionService.getEducacion().subscribe(

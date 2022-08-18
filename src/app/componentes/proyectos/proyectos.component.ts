@@ -12,17 +12,24 @@ import { ProyectoService } from 'src/app/servicios/proyecto.service';
 })
 export class ProyectosComponent implements OnInit {
 
+  isLogged= false;
+
   public proyectos:Proyecto[]=[];
   public editarProyecto: Proyecto | undefined;
   public borrarProyecto: Proyecto | undefined;
 
-  constructor(private proyectoService:ProyectoService, private autenticacionService:AutenticacionService) { }
+  constructor(private proyectoService:ProyectoService) { }
 
   ngOnInit(): void {
+    if(this.isLogueado?.length === undefined){
+      this.isLogged = false;
+    } else{
+      this.isLogged = true
+    }
     this.getProyectos();
   }
 
-  isLogged = this.autenticacionService.UsuarioLogueado;
+  isLogueado = sessionStorage.getItem("currentUser");
 
   public getProyectos():void{
     this.proyectoService.getProyecto().subscribe(
