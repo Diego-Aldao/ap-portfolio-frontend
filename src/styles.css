@@ -53,10 +53,6 @@ p:last-of-type {
     margin: 0;
 }
 
-textarea {
-    resize: none !important;
-}
-
 .link {
     text-decoration: none;
     text-decoration-skip-ink: auto;
