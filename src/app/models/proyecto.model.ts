@@ -1,7 +1,7 @@
 export interface Proyecto{
     idPro: number;    
     tituloPro: String;    
-    fechaPro: number;    
+    fechaPro: String;    
     descripcionPro: String;    
     imgPro: String;    
     linkCode: String;    

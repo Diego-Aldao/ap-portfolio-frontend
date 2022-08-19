@@ -3,7 +3,7 @@ export interface Experiencia {
     tituloExp: String;
     empresaExp: String;
     descripcionExp: String;
-    fechaIniExp: number;
-    fechaFinExp: number;
+    fechaIniExp: String;
+    fechaFinExp: String;
     imgExp: String;
 }
