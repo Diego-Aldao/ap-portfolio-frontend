@@ -1,5 +1,5 @@
 <section class="proyectos row" id="proyecto">
-  <header class="col-12 mb-4 d-flex align-items-center">
+  <header class="col-12 mt-5 d-flex align-items-center">
     <h2 class="text-capitalize"><span class="indice">04.</span> proyectos</h2>
     <button
       *ngIf="isLogged"
@@ -14,10 +14,7 @@
       </span>
     </button>
   </header>
-  <div
-    class="item-proyecto col-12 col-md-6 py-2"
-    *ngFor="let proyecto of proyectos"
-  >
+  <div class="items col-12 col-sm-6 mt-5" *ngFor="let proyecto of proyectos">
     <div class="col-12 mb-3 d-flex justify-content-end">
       <button
         *ngIf="isLogged"
@@ -36,7 +33,7 @@
         data-bs-toggle="modal"
         data-bs-target="#modal-eliminar-pro"
         (click)="onOpenModal('eliminar', proyecto)"
-        class="icono-crud eliminar p-1 px-2 ms-3 text-uppercase"
+        class="icono-crud eliminar p-1 px-2 ms-3 me-1 text-uppercase"
       >
         <span class="contenido-icono">
           eliminar
@@ -45,7 +42,10 @@
       </button>
     </div>
     <div class="contenido-proyecto">
-      <div class="imagen-proyecto"></div>
+      <div
+        class="imagen-proyecto"
+        [ngStyle]="{ 'background-image': 'url(' + proyecto.imgPro + ')' }"
+      ></div>
       <h3 class="nombre-proyecto text-capitalize">{{ proyecto.tituloPro }}</h3>
       <p class="fechas text-capitalize">{{ proyecto.fechaPro }}</p>
       <p class="descripcion-proyecto">

@@ -1,10 +1,9 @@
 /*PROYECTOS*/
 
 .contenido-proyecto {
-    margin-bottom: 100px;
     position: relative;
     overflow: hidden;
-
+    min-height: 230px;
 }
 
 .imagen-proyecto {
@@ -13,17 +12,32 @@
     height: 100%;
     top: 0px;
     left: 0px;
-    background: url("../../../assets/images/proyectos/pexels-cottonbro-4904567.jpg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    z-index: -1;
-    filter: opacity(0.2);
-    transition: filter .3s ease-in-out;
+    z-index: -2;
+    filter: grayscale(100%) contrast(1) brightness(50%);
 }
 
-.contenido-proyecto:hover .imagen-proyecto {
-    filter: opacity(0.7);
+.contenido-proyecto:after {
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: -1;
+    background: var(--color-principal);
+    mix-blend-mode: multiply;
+    opacity: 0.9;
+    transition: all .1s ease-in-out;
+    filter: brightness(60%);
+}
+
+
+
+.contenido-proyecto:hover:after {
+    background: none;
 }
 
 

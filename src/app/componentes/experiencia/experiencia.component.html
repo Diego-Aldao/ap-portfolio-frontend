@@ -1,5 +1,5 @@
 <section class="experiencia row mb-5" id="experiencia">
-  <header class="col-12 mb-4 d-flex align-items-center">
+  <header class="col-12 mt-5 d-flex align-items-center">
     <h2 class="text-capitalize"><span class="indice">01.</span> experiencia</h2>
     <button
       *ngIf="isLogged"
@@ -36,7 +36,7 @@
         *ngIf="isLogged"
         data-bs-toggle="modal"
         data-bs-target="#modal-eliminar-exp"
-        class="icono-crud eliminar p-1 px-2 ms-3 text-uppercase"
+        class="icono-crud eliminar p-1 px-2 ms-3 me-1 text-uppercase"
         (click)="onOpenModal('eliminar', experiencia)"
       >
         <span class="contenido-icono">

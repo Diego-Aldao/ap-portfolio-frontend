@@ -1,5 +1,9 @@
 /*HEADER PRINCIPAL*/
 
+.header-principal {
+    min-height: 520px;
+}
+
 .img-personal {
     width: 100px;
     height: 100px;

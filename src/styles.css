@@ -176,8 +176,8 @@ html .icono-crud {
     width: 100%;
     height: 100%;
     left: -100%;
-    top: 0;
-    transition: all .2s ease-in-out;
+    top: -100%;
+    transition: all .1s ease-in-out;
 }
 
 .añadir {
@@ -221,6 +221,7 @@ html .icono-crud {
 
 .icono-crud:hover::after {
     left: 0;
+    top: 0;
 }
 
 /*MODALS*/
