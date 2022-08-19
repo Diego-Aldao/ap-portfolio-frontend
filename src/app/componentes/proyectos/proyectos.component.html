@@ -47,7 +47,7 @@
     <div class="contenido-proyecto">
       <div class="imagen-proyecto"></div>
       <h3 class="nombre-proyecto text-capitalize">{{ proyecto.tituloPro }}</h3>
-      <p class="fechas">{{ proyecto.fechaPro }}</p>
+      <p class="fechas text-capitalize">{{ proyecto.fechaPro }}</p>
       <p class="descripcion-proyecto">
         {{ proyecto.descripcionPro }}
       </p>
@@ -282,11 +282,11 @@
             <div class="mb-5 contenedor-input col-lg-6">
               <input
                 ngModel="{{ editarProyecto?.fechaPro }}"
-                type="number"
+                type="text"
                 class="form-control"
                 id="fechaPro"
                 name="fechaPro"
-                placeholder="fecha del proyecto:"
+                placeholder="fecha del proyecto(finalizacion):"
               />
             </div>
             <div class="mb-5 contenedor-input">
