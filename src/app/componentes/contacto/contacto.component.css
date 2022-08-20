@@ -1,0 +1,11 @@
+h3 {
+    font-size: clamp(30px, 5vw, 36px);
+}
+
+.descripcion {
+    max-width: 500px;
+}
+
+span {
+    color: var(--color-principal);
+}

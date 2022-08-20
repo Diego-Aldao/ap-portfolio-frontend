@@ -15,6 +15,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 import { ExperienciaComponent } from './componentes/experiencia/experiencia.component'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { InterceptorService } from './servicios/interceptor.service';
+import { ContactoComponent } from './componentes/contacto/contacto.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { InterceptorService } from './servicios/interceptor.service';
     FooterComponent,
     InicioComponent,
     LoginComponent,
-    ExperienciaComponent
+    ExperienciaComponent,
+    ContactoComponent
   ],
   imports: [
     BrowserModule,
