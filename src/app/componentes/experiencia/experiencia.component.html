@@ -15,7 +15,7 @@
   </header>
   <!--ITEMS EXPERIENCIA-->
   <div
-    class="items mb-5 col-12 col-md-6 d-flex flex-wrap"
+    class="items mt-5 ms-0 col-12 col-md-6 d-flex flex-wrap"
     *ngFor="let experiencia of experiencias"
   >
     <!--BOTONES EDICION-->
@@ -242,7 +242,7 @@
             <div class="mb-5 contenedor-input col-lg-6">
               <input
                 ngModel="{{ editarExperiencia?.fechaIniExp }}"
-                type="number"
+                type="text"
                 class="form-control"
                 id="fechaIniExp"
                 name="fechaIniExp"
@@ -253,7 +253,7 @@
               <input
                 n
                 ngModel="{{ editarExperiencia?.fechaFinExp }}"
-                type="number"
+                type="text"
                 class="form-control"
                 id="fechaFinExp"
                 name="fechaFinExp"
