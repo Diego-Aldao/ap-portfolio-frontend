@@ -13,7 +13,10 @@
       </span>
     </button>
   </header>
-  <div class="items col-12 col-sm-6 mt-5" *ngFor="let habilidad of habilidades">
+  <div
+    class="items col-12 col-sm-6 mt-5 pb-5"
+    *ngFor="let habilidad of habilidades"
+  >
     <div class="col-12 mb-3 d-flex justify-content-end">
       <button
         *ngIf="isLogged"
