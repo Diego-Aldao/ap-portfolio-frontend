@@ -18,7 +18,7 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    filter: contrast(1) brightness(100%) blur(4px);
+    filter: contrast(1) brightness(100%);
 }
 
 .contenido-header:after {
@@ -30,7 +30,7 @@
     left: 0px;
     background: var(--color-negro);
     mix-blend-mode: multiply;
-    opacity: 0.5;
+    opacity: 0.8;
     z-index: -1;
 }
 

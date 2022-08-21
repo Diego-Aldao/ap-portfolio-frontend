@@ -133,10 +133,6 @@ html .boton:hover {
     margin: 0 auto;
 }
 
-.info-items {
-    width: calc(100% - 70px);
-}
-
 .descripcion-items::first-letter {
     text-transform: capitalize;
 }

@@ -15,7 +15,7 @@
     </button>
   </header>
   <div
-    class="items col-12 col-sm-6 mt-5 pb-5"
+    class="items col-12 col-sm-6 mt-5 pb-2"
     *ngFor="let proyecto of proyectos"
   >
     <div class="col-12 mb-3 d-flex justify-content-end">
@@ -44,7 +44,7 @@
         </span>
       </button>
     </div>
-    <div class="contenido-proyecto">
+    <div class="contenido-proyecto p-2">
       <div
         class="imagen-proyecto"
         [ngStyle]="{ 'background-image': 'url(' + proyecto.imgPro + ')' }"
