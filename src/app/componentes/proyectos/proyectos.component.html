@@ -132,7 +132,7 @@
             <div class="mb-5 contenedor-input col-lg-6">
               <input
                 ngModel
-                type="number"
+                type="text"
                 class="form-control"
                 id="fechaPro"
                 name="fechaPro"
@@ -218,8 +218,7 @@
                 <span class="contenido-icono">cerrar</span>
               </button>
               <button
-                [disabled]="formAgregar.invalid"
-                class="icono-crud añadir p-1 px-2 ms-3 text-uppercase btn"
+                class="icono-crud añadir p-1 px-2 ms-3 text-uppercase"
                 type="submit"
                 data-bs-dismiss="modal"
               >
@@ -371,7 +370,7 @@
               </button>
               <button
                 [disabled]="formAgregar.invalid"
-                class="icono-crud editar p-1 px-2 ms-3 text-uppercase btn"
+                class="icono-crud editar p-1 px-2 ms-3 text-uppercase"
                 type="submit"
                 data-bs-dismiss="modal"
                 (click)="onEditarPro(formEditar.value)"
@@ -415,7 +414,7 @@
         <div class="modal-footer">
           <button
             type="button"
-            class="btn icono-crud default p-1 px-2 ms-3 text-uppercase"
+            class="icono-crud default p-1 px-2 ms-3 text-uppercase"
             data-dismiss="modal"
           >
             <span class="contenido-icono">cerrar</span>
@@ -423,7 +422,7 @@
           <button
             (click)="onEliminarPro(borrarProyecto!.idPro)"
             type="button"
-            class="btn icono-crud eliminar p-1 px-2 ms-3 text-uppercase"
+            class="icono-crud eliminar p-1 px-2 ms-3 text-uppercase"
             data-bs-dismiss="modal"
           >
             <span class="contenido-icono"

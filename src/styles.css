@@ -163,12 +163,15 @@ html .boton:hover {
 
 html .icono-crud {
     border-radius: 5px;
-    background: var(--color-textos);
+    background: none;
     max-height: 32px;
     font-weight: 700;
     position: relative;
     overflow: hidden;
-    border: none;
+    color: var(--color-textos);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .icono-crud::after {
@@ -182,20 +185,21 @@ html .icono-crud {
 }
 
 .añadir {
-    box-shadow: 3px 3px var(--color-aceptar);
+    border: 1px solid var(--color-aceptar);
 }
 
 .editar {
-    box-shadow: 3px 3px var(--color-editar);
+    border: 1px solid var(--color-editar);
 }
 
 .eliminar {
-    box-shadow: 3px 3px var(--color-eliminar);
+    border: 1px solid var(--color-eliminar);
 }
 
 .default {
-    box-shadow: 3px 3px var(--color-titulos);
+    border: 1px solid var(--color-titulos);
 }
+
 
 .añadir::after {
     background: var(--color-aceptar);
@@ -216,13 +220,17 @@ html .icono-crud {
 .contenido-icono {
     position: relative;
     z-index: 2;
-    color: var(--color-negro);
+    color: var(--color-textos);
     font-size: 13px;
 }
 
 .icono-crud:hover::after {
     left: 0;
     top: 0;
+}
+
+.icono-crud:hover .contenido-icono {
+    color: var(--color-negro) !important;
 }
 
 /*MODALS*/
