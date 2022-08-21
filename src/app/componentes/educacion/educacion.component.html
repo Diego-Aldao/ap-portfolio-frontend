@@ -16,7 +16,7 @@
     </button>
   </header>
   <div
-    class="items col-12 col-sm-6 mt-5 pb-5"
+    class="items col-12 col-sm-6 mt-5 pb-3"
     *ngFor="let educacion of educaciones"
   >
     <div class="col-12 mb-3 d-flex justify-content-end">
@@ -37,7 +37,7 @@
         data-bs-toggle="modal"
         data-bs-target="#modal-eliminar-edu"
         (click)="onOpenModal('eliminar', educacion)"
-        class="icono-crud eliminar p-1 px-2 ms-3 me-1 text-uppercase"
+        class="icono-crud eliminar p-1 px-2 ms-3 text-uppercase"
       >
         <span class="contenido-icono">
           eliminar

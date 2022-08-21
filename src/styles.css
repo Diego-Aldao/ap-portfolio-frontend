@@ -126,6 +126,13 @@ html .boton:hover {
     border-radius: 5px;
 }
 
+.educacion,
+.habilidades,
+.experiencia,
+.proyectos {
+    min-height: 420px;
+}
+
 /*Experiencia/Educacion*/
 
 .items {

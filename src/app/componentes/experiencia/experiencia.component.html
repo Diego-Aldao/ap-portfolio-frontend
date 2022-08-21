@@ -15,7 +15,7 @@
   </header>
   <!--ITEMS EXPERIENCIA-->
   <div
-    class="items col-12 col-sm-6 mt-5 pb-5 ms-0"
+    class="items col-12 col-sm-6 mt-5 pb-3 ms-0"
     *ngFor="let experiencia of experiencias"
   >
     <!--BOTONES EDICION-->
@@ -36,7 +36,7 @@
         *ngIf="isLogged"
         data-bs-toggle="modal"
         data-bs-target="#modal-eliminar-exp"
-        class="icono-crud eliminar p-1 px-2 ms-3 me-1 text-uppercase"
+        class="icono-crud eliminar p-1 px-2 ms-3 text-uppercase"
         (click)="onOpenModal('eliminar', experiencia)"
       >
         <span class="contenido-icono">
